@@ -1,0 +1,104 @@
+.fadeIn {
+    animation: fadeIn 1.5s alternate forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeInTop {
+    animation: fadeInTop 1.5s alternate forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInTop {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.fadeInBottom {
+    animation: fadeInBottom 1.5s alternate forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInBottom {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.fadeInRight {
+    animation: fadeInRight 1.5s alternate forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.fadeInLeft {
+    animation: fadeInLeft 1.5s alternate forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(80px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.rotateInUpLeft {
+    animation: rotateInUpLeft 1.5s alternate forwards;
+    transform: rotate(90deg);
+    opacity: 0;
+}
+
+@keyframes rotateInUpLeft {
+    from {
+        transform: rotate(90deg);
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+@for $i from 1 through 9 {
+    .animDelay-#{$i} {
+        animation-delay: #{$i}s;
+    }
+
+    .animDelay-#{$i - 1}_5 {
+        animation-delay: #{$i - 0.5}s;
+    }
+}

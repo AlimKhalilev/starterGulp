@@ -1,0 +1,51 @@
+$screen_xs: 576px; // mobile
+$screen_sm: 768px; // mobile-reverse
+$screen_md: 992px; // planshet
+$screen_lg: 1280px; // notebooks
+$screen_xl: 1600px; // notebooks full hd
+
+$screen_xs_container: 95% ; // mobile
+$screen_sm_container: 90%; // mobile-reverse
+$screen_md_container: 90%; // planshet
+$screen_lg_container: 950px; // notebooks
+$screen_xl_container: 1200px; // notebooks full hd
+
+$screen_base_container: 1440px;
+
+// $media_xl: "min-width: " + ($screen_lg + 1) + ") and (max-width: " + $screen_xl;
+// $media_lg: "min-width: " + ($screen_md + 1) + ") and (max-width: " + $screen_lg;
+// $media_md: "min-width: " + ($screen_sm + 1) + ") and (max-width: " + $screen_md;
+// $media_sm: "min-width: " + ($screen_xs + 1) + ") and (max-width: " + $screen_sm;
+//  ТОЧЕЧНЫЙ АДАПТИВ (ПРОМЕЖУТОЧНЫЙ)  \\
+
+$media_xl: "max-width: " + $screen_xl;
+$media_lg: "max-width: " + $screen_lg;
+$media_md: "max-width: " + $screen_md;
+$media_sm: "max-width: " + $screen_sm;
+$media_xs: "max-width: " + $screen_xs;
+//  АДАПТИВ БЕЗ ПРОМЕЖУТКОВ  \\
+
+.section-inner {
+    margin: 0 auto;
+    max-width: $screen_base_container; 
+
+    @media ($media_xl) {
+        max-width: $screen_xl_container;
+    }
+
+    @media ($media_lg) {
+        max-width: $screen_lg_container;
+    }
+
+    @media ($media_md) {
+        max-width: $screen_md_container;
+    }
+
+    @media ($media_sm) {
+        width: $screen_sm_container;
+    }
+
+    @media ($media_xs) {
+        width: $screen_xs_container;
+    }
+}

@@ -1,0 +1,88 @@
+.lSAction {
+    @media ($media_sm) {
+        display: none;
+    }
+}
+
+.lSAction>a {
+    width: 3.1rem;
+    height: 3.1rem;
+    background-color: #fff;
+    box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    opacity: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+
+    svg {
+        width: 11px;
+        height: 17px;
+        fill: $color_primary_yellow;
+        transition: 0.3s ease-in-out;
+
+        @media ($media_lg) {
+            transform: scale(0.8);
+        }
+
+        @media ($media_md) {
+            transform: scale(0.6);
+        }
+    }
+
+    &:hover {
+        background-color: $color_primary_yellow;
+
+        svg {
+            fill: #fff;
+        }
+    }
+}
+
+.lSPager {
+    position: absolute;
+    bottom: -3.1rem;
+    left: 50%;
+    transform: translateX(-50%) !important;
+
+    @media ($media_sm) {
+        bottom: -2rem;
+    }
+}
+
+.lSAction>.lSPrev {
+    left: -4.4rem;
+
+    svg {
+        transform: rotate(180deg);
+
+        @media ($media_lg) {
+            transform: rotate(180deg) scale(0.8);
+        }
+
+        @media ($media_md) {
+            transform: rotate(180deg) scale(0.6);
+        }
+    }
+}
+
+.lSAction>.lSNext {
+    right: -4.4rem;
+}
+
+.lSSlideOuter .lSPager.lSpg>li a {
+    height: 0.3rem;
+    width: 2rem;
+    border-radius: 0;
+    background-color: #E8E8E8;
+}
+
+.lSSlideOuter .lSPager.lSpg>li.active a, .lSSlideOuter .lSPager.lSpg>li:hover a {
+    background-color: $color_primary_yellow;
+}
+
+.lSSlideOuter .lSPager.lSpg {
+    width: 100%;
+}

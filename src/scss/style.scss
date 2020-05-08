@@ -1,0 +1,31 @@
+@import "normalize";
+@import "colors";
+@import "grid";
+//@import "fonts";
+//@import "lightslider";
+@import "animate";
+@import "mixins";
+@import "header";
+@import "footer";
+
+// === / SectionName ===
+
+.section-main {
+    
+    .section-inner {
+
+    }
+
+    &-calendar {
+        display: flex;
+        justify-content: center;
+
+        svg {
+            width: 100px;
+            height: 100px;
+            fill: red;
+        }
+    }
+}
+
+// === SectionName ===
