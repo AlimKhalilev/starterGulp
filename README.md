@@ -20,7 +20,7 @@
     <ul>
         <li>Скрипты компилируются, минифицируются: <b>Uglify ES</b></li>
         <li>Файлы подключений начинаются с префикса. Прим. <b>_webpsup.js</b></li>
-        <li>Вставка подключений в js применяется с помощью плагина <b>gulp-file-include</b></li>
+        <li>Вставка подключений в js применяется с помощью плагина <b>gulp-file-include (~include)</b></li>
         <li>Главный файл скриптов, где собираются все скрипты проекта: <b>script.js</b></li>
         <li>Исходный файлы <b>.min</b> скриптов хранятся в папке <b>scripts</b></li>
         <li>Используется <b>jquery.min.js v3.2.1</b></li>
@@ -31,7 +31,7 @@
     <li>HTML блок</li>
     <ul>
         <li>Файлы подключений начинаются с префикса. Прим. <b>_header.html</b></li>
-        <li>Вставка кусков HTML производится с помощью плагина <b>gulp-file-include</b></li>
+        <li>Вставка кусков HTML производится с помощью плагина <b>gulp-file-include (~include)</b></li>
         <li>Основные шаблоны: head <b>_head.html</b>, шапка <b>_header.html</b>, подвал <b>_footer.html</b></li>
     </ul>
     <br>
@@ -50,4 +50,5 @@
         <li>Подключаются с помощью миксина в файле <b>_fonts.scss</b></li>
     </ul>
 </ul>
-<p style="text-align: right;">@2020 TheChampGuess / starterGulp</p>
+<hr>
+<p>@2020 TheChampGuess / starterGulp</p>

@@ -1,3 +1,5 @@
+// Проверка на поддержку WebP от браузера
+
 function testWebP(callback) {
     var webP = new Image();
     webP.onload = webP.onerror = function () {

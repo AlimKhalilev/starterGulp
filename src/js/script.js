@@ -1,6 +1,4 @@
-@@include("_webpsup.js");
-
-
+--include("_webpsup.js");
 
 let overlay = $(".overlay");
 let body = $("body");
@@ -17,6 +15,7 @@ $(document).ready(function() {
         if ($(window).width() <= '576') { // высота открытия модали на мобиле
             $(".modal-form").css("top", "50px");
         }
+        
         if ($(window).width() > '576') { // высота открытия на экране больше 576
             $(".modal-form").css("top", "120px");
         }

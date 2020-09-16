@@ -65,7 +65,9 @@ function html() {
 
 function js() {
     return src(path.src.js)
-        .pipe(fileinclude())
+        .pipe(fileinclude({
+            prefix: "--"
+        }))
         .pipe(dest(path.build.js))
         .pipe(uglify())
         .pipe(
@@ -96,9 +98,7 @@ function css() {
                 cascade: true
             })
         )
-        .pipe(webpcss({
-            webpClass: '.webp-support'
-        }))
+        .pipe(webpcss())
         .pipe(dest(path.build.css))
         .pipe(clean_css())
         .pipe(
