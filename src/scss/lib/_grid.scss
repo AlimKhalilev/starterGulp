@@ -10,12 +10,13 @@ $screen_md_container: 90%; // planshet
 $screen_lg_container: 950px; // notebooks
 $screen_xl_container: 1200px; // notebooks full hd
 
-$screen_base_container: 1440px;
+$screen_base_container: 1520px;
 
 // $media_xl: "min-width: " + ($screen_lg + 1) + ") and (max-width: " + $screen_xl;
 // $media_lg: "min-width: " + ($screen_md + 1) + ") and (max-width: " + $screen_lg;
 // $media_md: "min-width: " + ($screen_sm + 1) + ") and (max-width: " + $screen_md;
 // $media_sm: "min-width: " + ($screen_xs + 1) + ") and (max-width: " + $screen_sm;
+
 //  ТОЧЕЧНЫЙ АДАПТИВ (ПРОМЕЖУТОЧНЫЙ)  \\
 
 $media_xl: "max-width: " + $screen_xl;

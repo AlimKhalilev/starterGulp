@@ -1,14 +1,16 @@
-@import "normalize";
-@import "colors";
-@import "grid";
-//@import "fonts";
-//@import "lightslider";
-@import "animate";
-@import "mixins";
+@import "./lib/normalize";
+@import "./lib/colors";
+@import "./lib/grid";
+//@import "./lib/fonts";
+//@import "./lib/lightslider";
+@import "./lib/animate";
+@import "./lib/mixins";
+@import "./lib/burger";
+
 @import "header";
 @import "footer";
 
-// === / SectionName ===
+// === SectionName ===
 
 .section-main {
     
@@ -28,4 +30,9 @@
     }
 }
 
+// === / SectionName ===
+
+
 // === SectionName ===
+
+// === / SectionName ===

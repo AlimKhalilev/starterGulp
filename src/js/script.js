@@ -5,6 +5,23 @@ let body = $("body");
 
 $(document).ready(function() {
 
+    // КОД ДЛЯ БУРГЕР МЕНЮ
+    
+    // let button_burger = $(".burger");
+    // let menu_burger = $(".menu-burger");
+    // let body = $("body");
+
+    // $(button_burger).click(function () {
+    //     if (!menu_burger.is(':visible')) {
+    //         menu_burger.slideDown('normal');
+    //         body.css("overflow-y", "hidden");
+    //     } 
+    //     else {
+    //         menu_burger.slideUp('normal');
+    //         body.css("overflow-y", "");
+    //     }
+    // });
+
     /* 
     
     $("#open_modal").click(function() {
