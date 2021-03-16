@@ -8,7 +8,7 @@ $(document).ready(function() {
     // КОД ДЛЯ БУРГЕР МЕНЮ
     
     // let button_burger = $(".burger");
-    // let menu_burger = $(".menu-burger");
+    // let menu_burger = $(".header-menu");
     // let body = $("body");
 
     // $(button_burger).click(function () {

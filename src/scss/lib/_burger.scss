@@ -1,5 +1,5 @@
-.menu-burger {
-    @media ($media_xs) {
+.burger-menu {
+    @media ($media_sm) {
         display: none;
     }
 }
@@ -7,7 +7,7 @@
 .burger {
     display: none;
 
-    @media ($media_xs) {
+    @media ($media_sm) {
         display: flex;
     }
 
@@ -35,17 +35,17 @@
         margin: 0;
     }
 
-    input:checked ~ .burger__item1 {
+    input:checked ~ .burger-item1 {
         transform: rotate(135deg) translate(1px, 1px);
         transform-origin: bottom;
     }
 
-    input:checked ~ .burger__item2 {
+    input:checked ~ .burger-item2 {
         transform: rotate(45deg) translate(1px, -1px);
         transform-origin: top;
     }
 
-    input:checked ~ .burger__item3 {
+    input:checked ~ .burger-item3 {
         transform: rotate(45deg);
         opacity: 0;
     }
@@ -63,11 +63,11 @@
         margin-bottom: 0;
     }
 
-    .burger__item1 {
+    .burger-item1 {
         transform-origin: 4px 0px;
     }
 
-    .burger__item3 {
+    .burger-item3 {
         transform-origin: bottom right;
     }
 }
