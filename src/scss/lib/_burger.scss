@@ -1,7 +1,5 @@
-.burger-menu {
-    @media ($media_sm) {
-        display: none;
-    }
+.overlay_burger {
+    z-index: 10;
 }
 
 .burger {

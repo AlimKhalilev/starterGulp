@@ -1,38 +1,73 @@
 @import "./lib/normalize";
 @import "./lib/colors";
 @import "./lib/grid";
-//@import "./lib/fonts";
-//@import "./lib/lightslider";
+@import "./lib/fonts";
+@import "./lib/lightslider";
 @import "./lib/animate";
 @import "./lib/mixins";
 @import "./lib/burger";
+@import "./lib/modal";
 
 @import "header";
 @import "footer";
 
-// === SectionName ===
+// === main ===
 
 .section-main {
-    
+    margin-top: var(--fixed_header_margin);
+    padding: var(--section_padding) 0;
+
     .section-inner {
-
+    
     }
+    
+    .main {
+        &-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+    
+            svg {
+                width: 100px;
+                height: 100px;
+                fill: $color_primary;
+            }
 
-    &-calendar {
-        display: flex;
-        justify-content: center;
+            img {
+                max-width: 100%;
+            }
 
-        svg {
-            width: 100px;
-            height: 100px;
-            fill: red;
+            *:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+        }
+
+        &-slider {
+            display: flex;
+
+            &-item {
+                display: flex;
+                padding: 0.8rem;
+
+                .card {
+                    background-color: $color_primary;
+                    color: $color_white;
+                    text-align: center;
+                    font-size: 1.2rem;
+                    padding: 1rem;
+                    box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(34, 34, 34, 0.3);
+
+                    img {
+                        max-width: 100%;
+                        margin-top: 1rem;
+                    }
+                }
+            }
         }
     }
+    
 }
 
-// === / SectionName ===
-
-
-// === SectionName ===
-
-// === / SectionName ===
+// === / main ===

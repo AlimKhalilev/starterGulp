@@ -1,13 +1,81 @@
 // === Mixins [ Шаблоны классов стилей, используемых на всех страницах ]===
 
+// используется для одинаковых отступов внутри секций
+:root {
+    --section_padding: 3rem;
+    --fixed_header_margin: 5rem;
+
+    @media ($media_xs) {
+        --section_padding: 2rem;
+    }
+}
+
 html, body {
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
+    line-height: 1.5;
     background-color: $color_body_bg;
+
+    &.hideScroll {
+        overflow-y: hidden;
+    }
+
+    @media ($media_xl) {
+        font-size: 14px;
+    }
+
+    @media ($media_sm) {
+        font-size: 16px;
+    }
+
+    @media ($media_xs) {
+        font-size: 14px;
+    }
 }
 
-picture {
-    display: inline-flex;
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+
+    &.visible {
+        visibility: visible;
+        opacity: 0.8;
+    }
+}
+
+.visually_hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+.btn_primary {
+    background-color: $color_primary;
+    border: none;
+    outline: none;
+    border-radius: 0.5rem;
+    color: $color_white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    padding: 1rem 2rem;
+
+    &:hover, &:focus {
+        box-shadow: 0.4rem 0.4rem 0.4rem 0.1rem rgba(34, 34, 34, 0.3);
+    }
+}
+
+.section_header {
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 // === / Mixins ===
