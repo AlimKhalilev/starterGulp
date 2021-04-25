@@ -3,7 +3,8 @@
 @import "./lib/grid";
 @import "./lib/fonts";
 @import "./lib/lightslider";
-@import "./lib/animate";
+@import "./lib/selectric";
+//@import "./lib/animate";
 @import "./lib/mixins";
 @import "./lib/burger";
 @import "./lib/modal";
@@ -39,7 +40,24 @@
                 max-width: 100%;
             }
 
-            *:not(:last-child) {
+            &-buttons {
+                display: flex;
+                align-items: center;
+
+                @media ($media_sm) {
+                    flex-direction: column;
+                }
+
+                button:not(:last-child) {
+                    margin-right: 1rem;
+
+                    @media ($media_sm) {
+                        margin: 0 0 1rem 0;
+                    }
+                }
+            }
+
+            > *:not(:last-child) {
                 margin-bottom: 2rem;
             }
         }

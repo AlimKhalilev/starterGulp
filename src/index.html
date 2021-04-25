@@ -19,9 +19,12 @@
 				<div class="main-content">
 					<svg><use xlink:href="img/main.svg#icon_calendar"></use></svg>
 					<img src="img/gulp-demo.png" alt="test">
-					<button data-modal="modal_success" class="btn_primary">Открыть модалку</button>
+					<div class="main-content-buttons">
+						<button data-modal="modal_success" class="btn_primary">Открыть модалку 1</button>
+						<button data-modal="modal_second" class="btn_primary">Открыть модалку 2</button>
+					</div>
 				</div>
-				<div class="main-slider">
+				<div class="main-slider" data-slider="4,2,1">
 					<!-- .main-slider-item*8>.card>span{Привет, это слайд №$}+img[src="./img/cat.jpg" alt="Кот"] -->
 					<div class="main-slider-item">
 						<div class="card"><span>Привет, это слайд №1</span><img src="./img/cat.jpg" alt="Кот"></div>

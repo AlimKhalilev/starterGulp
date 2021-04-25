@@ -7,6 +7,11 @@ function initModal() {
         body.classList.add("hideScroll");
         document.querySelector(`#${id}`).classList.add("visible");
     }
+
+    function changeModal(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
+        closeModal();
+        setTimeout(() => showModal(id), 700);
+    }
     
     function closeModal() {
         overlay.classList.remove("visible");
@@ -16,6 +21,10 @@ function initModal() {
     
     document.querySelectorAll("[data-modal]").forEach(item => {
         item.addEventListener("click", (e) => showModal(e.target.dataset.modal));
+    });
+
+    document.querySelectorAll("[data-changeModal]").forEach(item => {
+        item.addEventListener("click", (e) => changeModal(e.target.dataset.changemodal));
     });
     
     document.querySelectorAll("[data-closeModal]").forEach(item => {

@@ -1,6 +1,6 @@
 <header class="section-outer section-header">
     <div class="section-inner header">
-        <div class="header-content">
+        <div class="header-logo">
             <a class="logo" href="#">
                 <img class="logo-icon" src="./img/logo.png" alt="Логотип">
             </a>
@@ -11,13 +11,26 @@
                 <span class="burger-item3"></span>
             </div>
         </div>
-        <nav class="header-links" data-burger="menu">
-            <ul class="menu">
-                <li class="menu-item"><a href="#">Меню 1</a></li>
-                <li class="menu-item active"><a href="#">Меню 2</a></li>
-                <li class="menu-item"><a href="#">Меню 3</a></li>
-                <li class="menu-item"><a href="#">Меню 4</a></li>
-            </ul>
-        </nav>
+
+        <div class="header-controls" data-burger="menu">
+            <nav class="header-controls-links">
+                <ul class="menu">
+                    <li class="menu-item"><a href="#">Меню 1</a></li>
+                    <li class="menu-item active"><a href="#">Меню 2</a></li>
+                    <li class="menu-item"><a href="#">Меню 3</a></li>
+                    <li class="menu-item"><a href="#">Меню 4</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls-select">
+                <select name="mySelect">
+                    <option disabled>Выберите героя</option>
+                    <option value="Чебурашка">Чебурашка</option>
+                    <option selected value="Крокодил Гена">Крокодил Гена</option>
+                    <option value="Шапокляк">Шапокляк</option>
+                    <option value="Крыса Лариса">Крыса Лариса</option>
+                </select>
+            </div>
+        </div>
+
     </div>
 </header>

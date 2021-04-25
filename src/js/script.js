@@ -4,7 +4,7 @@ $(document).ready(function() {
  
     --include("_modal.js")
     --include("_burger.js")
-
-    --include("_main-slider.js")
+    --include("_slider.js")
+    --include("_selectric.js")
     
 });

@@ -396,11 +396,21 @@
 
 // ====================== CUSTOM =============================
 
-// .lSAction {
-//     @media ($media_sm) {
-//         display: none;
-//     }
+
+
+// ===== КНОПКИ ВНИЗУ СЛАЙДЕРА ========== //
+
+// .lSPager {
+//     display: none;
 // }
+
+// КНОПКИ СБОКУ СЛАЙДЕРА
+
+// .lSAction {
+//     display: none;
+// }
+
+// ===================== //
 
 .lSSlideOuter {
     position: relative;
@@ -442,32 +452,28 @@
     }
 }
 
-.lSPager {
-    display: none;
-}
-
 .lSAction>.lSPrev, .lSAction>.lSNext {
     background-position: center;
 }
 
 .lSAction>.lSPrev {
     transform: rotateY(180deg);
-    left: -4.4rem;
+    left: -4rem;
     @media ($media_sm) {
-        left: -3.4rem;
+        left: -3rem;
     }
     @media ($media_xs) {
-        left: -2.2rem;
+        left: -2rem;
     }
 }
 
 .lSAction>.lSNext {
-    right: -4.4rem;
+    right: -4rem;
     @media ($media_sm) {
-        right: -3.4rem;
+        right: -3rem;
     }
     @media ($media_xs) {
-        right: -2.2rem;
+        right: -2rem;
     }
 }
 
