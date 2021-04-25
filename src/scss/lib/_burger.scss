@@ -2,13 +2,6 @@
     z-index: 10;
 }
 
-[data-burger='menu'] {
-    @media ($media_sm) {
-        display: none; // если бургер меню активно
-        width: 100%;
-    }
-}
-
 .burger {
     display: none;
 

@@ -400,9 +400,12 @@
 
 // ===== КНОПКИ ВНИЗУ СЛАЙДЕРА ========== //
 
-// .lSPager {
-//     display: none;
-// }
+.lSPager {
+    //display: none;
+    @media ($media_sm) {
+        display: none;
+    }
+}
 
 // КНОПКИ СБОКУ СЛАЙДЕРА
 

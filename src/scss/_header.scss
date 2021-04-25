@@ -53,6 +53,11 @@
             @media ($media_sm) {
                 flex-direction: column;
                 align-items: flex-start;
+
+                &[data-burger='menu'] {
+                    display: none; // если бургер меню активно
+                    width: 100%;
+                }
             }
 
             &-links {
