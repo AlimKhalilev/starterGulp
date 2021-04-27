@@ -89,3 +89,29 @@
 }
 
 // === / main ===
+
+// === scroll ===
+
+.section-scroll {
+    padding: var(--section_padding) 0;
+
+    .section-inner {
+    
+    }
+    
+    .scroll {
+        &-block {
+            background-color: $color_primary;
+            color: $color_white;
+            font-size: 1.2rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7rem 0;
+        }
+    }
+    
+}
+
+// === / scroll ===

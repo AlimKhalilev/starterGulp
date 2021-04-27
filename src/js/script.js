@@ -6,5 +6,6 @@ $(document).ready(function() {
     --include("_burger.js")
     --include("_slider.js")
     --include("_selectric.js")
+    --include("_scroll.js")
     
 });

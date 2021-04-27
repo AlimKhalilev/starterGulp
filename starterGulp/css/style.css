@@ -1607,7 +1607,7 @@ body.hideScroll {
 
 .section-footer {
   background-color: tomato;
-  padding: 1rem 0;
+  padding: 1.5rem 0;
 }
 
 .section-footer .footer {
@@ -1698,6 +1698,27 @@ body.hideScroll {
 .section-main .main-slider-item .card img {
   max-width: 100%;
   margin-top: 1rem;
+}
+
+.section-scroll {
+  padding: var(--section_padding) 0;
+}
+
+.section-scroll .scroll-block {
+  background-color: tomato;
+  color: #fff;
+  font-size: 1.2rem;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 7rem 0;
 }
 
 @media (max-width: 1600px) {
@@ -1798,6 +1819,10 @@ body.hideScroll {
             flex-direction: column;
   }
 
+  .section-header .header-controls-links .menu-item::after {
+    content: none;
+  }
+
   .section-header .header-controls-select {
     margin: 0.8rem 0 0 0;
   }
@@ -1826,11 +1851,11 @@ body.hideScroll {
   }
 
   .lSAction > .lSPrev {
-    left: -2rem;
+    left: -2.3rem;
   }
 
   .lSAction > .lSNext {
-    right: -2rem;
+    right: -2.3rem;
   }
 
   :root {

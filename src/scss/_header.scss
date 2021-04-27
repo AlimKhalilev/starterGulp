@@ -92,6 +92,10 @@
                             background-color: $color_black_main;
                             transform: scaleX(0);
                             transition: 0.3s ease-in-out;
+
+                            @media ($media_sm) {
+                                content: none;
+                            }
                         }
     
                         &:hover {
