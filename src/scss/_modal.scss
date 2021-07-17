@@ -1,9 +1,5 @@
 // === Modal ===
 
-.overlay_modal {
-    z-index: 20;
-}
-
 .modal {
     position: fixed;
     top: -999px;
@@ -12,52 +8,32 @@
     transition: 0.3s ease-in-out;
     z-index: 21;
 
-    &.visible {
-        top: 50%;
-    }
-}
-
-.modal {
     padding: 3.5rem;
     border-radius: 0.8rem;
     box-shadow: 0 0 1.25rem 0 rgba(0, 0, 0, 0.1);
     background-color: $color_white;
     width: 34rem;
 
+    &.visible {
+        top: 50%;
+    }
+
     @media ($media_xs) {
         width: 90%;
         padding: 1.5rem;
     }
 
-    &-header {
+    // .modal__header
+
+    &__header {
         text-align: center;
         line-height: 1.27;
         margin-bottom: 2.5rem;
-
-        @media ($media_xs) {
-            margin-bottom: 1.5rem;
-
-            h2 {
-                font-size: 1.4rem;
-            }
-        }
     }
 
-    &-content {
-        text-align: center;
+    // .modal__close
 
-        &-text {
-            padding: 1rem 0;
-        }
-
-        &-icon {
-            svg {
-                max-width: 10rem;
-            }
-        }
-    }
-
-    &-close {
+    &__close {
         position: absolute;
         right: 0;
         top: 0;
@@ -76,6 +52,32 @@
         svg {
             fill: $color_black_main;
         }
+    }
+
+    // .modal__content
+
+    &__content {
+        text-align: center;
+    }
+
+    // .modal__img
+
+    &__img {
+        svg {
+            max-width: 10rem;
+        }
+    }
+
+    // .modal__text
+
+    &__text {
+        padding: 1rem 0;
+    }
+
+    // .modal__button
+
+    &__button {
+
     }
 }
 

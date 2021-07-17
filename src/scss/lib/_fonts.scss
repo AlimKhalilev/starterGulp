@@ -14,11 +14,14 @@
 @include font("CenturyGothic", "CenturyGothic/CenturyGothic-BoldItalic", "bold", "italic");
 
 
-@include font("Montserrat", "Montserrat/Montserrat-Light", "lighter", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-LightItalic", "lighter", "italic");
+@include font("Montserrat", "Montserrat/Montserrat-Light", "300", "normal");
+@include font("Montserrat", "Montserrat/Montserrat-LightItalic", "300", "italic");
 
-@include font("Montserrat", "Montserrat/Montserrat-Regular", "normal", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-Italic", "normal", "italic");
+@include font("Montserrat", "Montserrat/Montserrat-Regular", "400", "normal");
+@include font("Montserrat", "Montserrat/Montserrat-Italic", "400", "italic");
 
-@include font("Montserrat", "Montserrat/Montserrat-Bold", "bold", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-BoldItalic", "bold", "italic");
+@include font("Montserrat", "Montserrat/Montserrat-Medium", "500", "normal");
+@include font("Montserrat", "Montserrat/Montserrat-MediumItalic", "500", "italic");
+
+@include font("Montserrat", "Montserrat/Montserrat-Bold", "700", "normal");
+@include font("Montserrat", "Montserrat/Montserrat-BoldItalic", "700", "italic");

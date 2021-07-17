@@ -1,5 +1,5 @@
 function initScroll() {
-    let overlay_burger = document.querySelector(".overlay_burger");
+    let overlay_burger = document.querySelector(".overlay--burger");
 
     document.querySelectorAll("[data-scroll]").forEach(item => {
         item.addEventListener("click", (e) => {
@@ -9,7 +9,7 @@ function initScroll() {
     });
 
     function scrollTo(target) {
-        if (document.querySelector(".overlay_burger.visible") !== null) { // если в момент клика открыта шторка бургер-меню
+        if (document.querySelector(".overlay--burger.visible") !== null) { // если в момент клика открыта шторка бургер-меню
             overlay_burger.click();
         }
         document.querySelector(target).scrollIntoView({ behavior: 'smooth' });

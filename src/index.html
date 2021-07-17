@@ -8,55 +8,67 @@
 
 	</head>
 	<body>
+		
 
 		@@include("_header.html")
 
-		<section class="section-outer section-main">
-			<div class="section-inner main">
-				<div class="main-header">
-					<h1 class="section_header">Привет, это StarterGulp v1.1!</h1>
+		<section class="section section--underHeader main">
+			<div class="section__inner main__inner">
+
+				<div class="main__header">
+					<h1 class="blockTitle">Привет, это StarterGulp v1.2 beta!</h1>
 				</div>
-				<div class="main-content">
-					<svg><use xlink:href="img/main.svg#icon_calendar"></use></svg>
-					<img src="img/gulp-demo.png" alt="test">
-					<div class="main-content-buttons">
-						<button data-modal="modal_success" class="btn_primary">Открыть модалку 1</button>
-						<button data-modal="modal_second" class="btn_primary">Открыть модалку 2</button>
+
+				<div class="main__content">
+
+					<!-- <div class="main__icons">
+						<svg class='icon icon-twitter'><use xlink:href='img/sprite.svg#twitter'></use></svg>
+						<svg class='icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
+					</div> -->
+
+					<img class="imgMax" src="img/gulp-demo.png" alt="test">
+
+					<div class="main__buttons">
+						<button data-modal="modal_success" class="btn btn--primary">Открыть модалку 1</button>
+						<button data-modal="modal_second" class="btn btn--primary">Открыть модалку 2</button>
+					</div>
+
+				</div>
+
+				<div class="main__slider slider" data-slider="4,2,1">
+					<!-- .slider__item*8>.slider__card>span{Привет, это слайд №$}+img[src="./img/cat.jpg" alt="Кот"] -->
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №1</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №2</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №3</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №4</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №5</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №6</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №7</span><img src="./img/cat.jpg" alt="Кот"></div>
+					</div>
+					<div class="slider__item">
+						<div class="slider__card"><span>Привет, это слайд №8</span><img src="./img/cat.jpg" alt="Кот"></div>
 					</div>
 				</div>
-				<div class="main-slider" data-slider="4,2,1">
-					<!-- .main-slider-item*8>.card>span{Привет, это слайд №$}+img[src="./img/cat.jpg" alt="Кот"] -->
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №1</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №2</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №3</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №4</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №5</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №6</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №7</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-					<div class="main-slider-item">
-						<div class="card"><span>Привет, это слайд №8</span><img src="./img/cat.jpg" alt="Кот"></div>
-					</div>
-				</div>
+
 			</div>
 		</section>
 
-		<section class="section-outer section-scroll">
-			<div class="section-inner scroll">
-				<div class="scroll-block">Это блок скролла</div>
+		<section class="section section--beforeFooter scrollBlock">
+			<div class="section__inner scrollBlock__inner">
+				<div class="scrollBlock__preview">Это блок скролла</div>
 			</div>
 		</section>
 

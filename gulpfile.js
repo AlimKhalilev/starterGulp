@@ -14,14 +14,16 @@ let path = {
        css: source_folder + "/scss/style.scss",
        js: source_folder + "/js/script.js",
        js_min: source_folder + "/js/scripts/**/*.min.js",
-       img: source_folder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
+       img: source_folder + "/img/**/*.+(png|jpg|gif|ico|webp|svg)",
+       sprite: source_folder + "/svg/*.svg",
        fonts: source_folder + "/fonts/**/*.ttf"
     },
     watch: {
        html: source_folder + "/*.html",
        css: source_folder + "/scss/**/*.scss",
        js: source_folder + "/js/**/*.js",
-       img: source_folder + "/img/**/*.+(png|jpg|gif|ico|svg|webp)",
+       img: source_folder + "/img/**/*.+(png|jpg|gif|ico|webp|svg)",
+       sprite: source_folder + "/svg/*.svg"
     },
     clean: "./" + project_folder + "/"
 }
@@ -42,6 +44,9 @@ let { src, dest } = require("gulp"),
    webphtml = require("gulp-webp-html"),
    webpcss = require("gulp-webpcss"),
    svgSprite = require("gulp-svg-sprite"),
+   svgmin = require('gulp-svgmin'),
+   cheerio = require('gulp-cheerio'),
+   replace = require('gulp-replace'),
    ttf2woff = require("gulp-ttf2woff"),
    ttf2woff2 = require("gulp-ttf2woff2");
 
@@ -146,26 +151,83 @@ function watchFiles(params) {
    gulp.watch([path.watch.css], css);
    gulp.watch([path.watch.js], js);
    gulp.watch([path.watch.img], images);
+   gulp.watch([path.watch.sprite], sprite);
 }
 
 function clean(params) {
    return del(path.clean);
 }
 
-gulp.task("svgSprite", function() {
-   return gulp.src([source_folder + "/iconsprite/*.svg"])
-   .pipe(svgSprite({
-       mode: {
-           stack: {
-               sprite: "../icons/icons.svg",
-               example: true
-           }
-       }
-   }))
-   .pipe(dest(path.build.img))
-})
+function sprite(params) {
+    return src(path.src.sprite)
+	// minify svg
 
-let build = gulp.series(clean, js_min, gulp.parallel(js, css, html, images, fonts));
+		.pipe(svgmin({
+			js2svg: {
+				pretty: true
+			}
+		}))
+
+		// remove all fill, style and stroke declarations in out shapes
+
+		.pipe(cheerio({
+			run: function ($) {
+
+                $('[fill]').removeAttr('fill');
+                $('[stroke]').removeAttr('stroke');
+				$('[style]').removeAttr('style');
+
+				// $('[fill]').attr('fill', 'currentColor');
+                // $('[stroke]').attr('stroke', 'currentColor');
+				// $('[style]').removeAttr('style');
+
+                // const tags = ["fill", "stroke"];
+
+                // $("path").each(function() {
+                //     let count = 0;
+                //     tags.forEach(item => {
+                //         if ($(this).attr(item) === undefined) {
+                //             count++;
+                //             $(this).attr(item, "transparent");
+                //         }
+
+                //         if (count === tags.length) { // если в одном <path> одновременно нет ни fill, ни stroke
+                //             tags.forEach(item => {
+                //                 $(this).removeAttr(item); // удаляем их от туда
+                //             });
+                //         }
+                //     });
+                // });
+
+                //console.log($("svg").html());
+                
+			},
+			parserOptions: {xmlMode: true}
+		}))
+
+		// cheerio plugin create unnecessary string '&gt;', so replace it.
+		.pipe(replace('&gt;', '>'))
+		// build svg sprite
+		.pipe(svgSprite({
+            preview: {
+                sprite: "index.html"
+            },
+			mode: {
+				symbol: {
+					sprite: "../sprite.svg",
+					render: {
+						scss: {
+							dest: '../../../' + source_folder + '/scss/sprite/_icons.scss',
+							template: source_folder + "/scss/sprite/_icons.template"
+						}
+					},
+                    example: true
+				}
+			}
+		}))
+		.pipe(dest(path.build.img));
+}
+let build = gulp.series(clean, js_min, gulp.parallel(js, css, html, images, fonts, sprite));
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fonts = fonts;
@@ -173,6 +235,7 @@ exports.images = images;
 exports.js = js;
 exports.css = css;
 exports.html = html;
+exports.sprite = sprite;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

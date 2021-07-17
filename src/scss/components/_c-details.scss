@@ -1,0 +1,25 @@
+.details {
+    // .details__header
+
+    &--opened {
+        .details__body {
+            visibility: visible;
+            opacity: 1;
+            transform: scaleY(100%);
+        }
+    }
+
+    &__header {
+        @include cursorPointer;
+    }
+
+    // .details__body
+
+    &__body {
+        transition: 0.3s ease-in-out;
+        visibility: hidden;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+}

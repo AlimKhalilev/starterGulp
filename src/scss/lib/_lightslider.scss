@@ -426,8 +426,8 @@
 }
 
 .lSAction>a {
-    width: 3.1rem;
-    height: 3.1rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background-color: #fff;
     box-shadow: 0px 0.25rem 0.25rem rgba(0, 0, 0, 0.1);
     border-radius: 50%;
@@ -442,11 +442,11 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    margin-top: -2rem;
+    margin-top: -1.7rem;
 
     @media ($media_xs) {
-        width: 2rem;
-        height: 2rem;
+        width: 1.7rem;
+        height: 1.7rem;
         background-size: 50%;
     }
 
@@ -461,22 +461,22 @@
 
 .lSAction>.lSPrev {
     transform: rotateY(180deg);
-    left: -4rem;
+    left: -3rem;
     @media ($media_sm) {
-        left: -3rem;
+        left: -2.8rem;
     }
     @media ($media_xs) {
-        left: -2.3rem;
+        left: -2rem;
     }
 }
 
 .lSAction>.lSNext {
-    right: -4rem;
+    right: -3rem;
     @media ($media_sm) {
-        right: -3rem;
+        right: -2.8rem;
     }
     @media ($media_xs) {
-        right: -2.3rem;
+        right: -2rem;
     }
 }
 
@@ -493,7 +493,7 @@
 }
 
 .lSSlideOuter .lSPager.lSpg {
-    margin-top: 2rem !important;
+    margin-top: 1.7rem !important;
 }
 
 .lightSlider {

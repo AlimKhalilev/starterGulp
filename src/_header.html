@@ -1,35 +1,44 @@
-<header class="section-outer section-header">
-    <div class="section-inner header">
-        <div class="header-logo">
-            <a class="logo" href="#">
-                <img class="logo-icon" src="./img/logo.png" alt="Логотип">
+<header class="section header">
+    <div class="section__inner header__inner">
+
+        <div class="header__logo">
+
+            <a class="logo" href="./">
+                <img class="logo__icon imgMax" src="./img/logo.png" alt="Логотип">
             </a>
+
             <div class="burger" data-burger="button">
-                <input type="checkbox">
-                <span class="burger-item1"></span>
-                <span class="burger-item2"></span>
-                <span class="burger-item3"></span>
+                <input class="burger__checkbox" type="checkbox">
+                <span class="burger__item burger__item--1"></span>
+                <span class="burger__item burger__item--2"></span>
+                <span class="burger__item burger__item--3"></span>
             </div>
+            
         </div>
 
-        <div class="header-controls" data-burger="menu">
-            <nav class="header-controls-links">
-                <ul class="menu">
-                    <li class="menu-item"><a href="#">Меню 1</a></li>
-                    <li class="menu-item active"><a href="#">Меню 2</a></li>
-                    <li class="menu-item"><a href="#">Меню 3</a></li>
-                    <li class="menu-item"><a href="#">Меню 4</a></li>
-                    <li class="menu-item"><a href="#" data-scroll=".section-scroll">Скролл</a></li>
+        <div class="header__controls" data-burger="menu">
+            <nav class="header__links">
+                <ul class="header__menu menu">
+                    <li class="menu__item"><a class="menu__link" href="#">Меню 1</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#">Меню 2</a></li>
+                    <li class="menu__item menu__item--active"><a class="menu__link" href="./components.html">Компоненты</a></li>
+                    <li class="menu__item"><a class="menu__link" href="./img/symbol/sprite.symbol.html" target="_blank">Спрайты</a></li>
+                    <li class="menu__item"><a class="menu__link" href="#" data-scroll=".scrollBlock">Скролл</a></li>
                 </ul>
             </nav>
-            <div class="header-controls-select">
-                <select name="mySelect">
-                    <option disabled>Выберите героя</option>
-                    <option value="Чебурашка">Чебурашка</option>
-                    <option selected value="Крокодил Гена">Крокодил Гена</option>
-                    <option value="Шапокляк">Шапокляк</option>
-                    <option value="Крыса Лариса">Крыса Лариса</option>
-                </select>
+            <div class="header__select">
+
+                <div class="c-select">
+                    <svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
+                    <select name="mySelect" data-customSelect>
+                        <option disabled>Выберите героя</option>
+                        <option value="Чебурашка">Чебурашка</option>
+                        <option selected value="Крокодил Гена">Крокодил Гена</option>
+                        <option value="Шапокляк">Шапокляк</option>
+                        <option value="Крыса Лариса">Крыса Лариса</option>
+                    </select>
+                </div>
+
             </div>
         </div>
 

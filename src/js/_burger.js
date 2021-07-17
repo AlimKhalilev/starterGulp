@@ -1,7 +1,7 @@
 function initBurgerMenu() {
     let button_burger = $("[data-burger='button']");
     let menu_burger = $("[data-burger='menu']");
-    let overlay = document.querySelector(".overlay_burger");
+    let overlay = document.querySelector(".overlay--burger");
     let body = document.body;
 
     function hideMenu() {

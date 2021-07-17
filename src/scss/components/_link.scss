@@ -1,0 +1,55 @@
+.link {
+    $color_link: $color_info;
+
+    text-decoration: none;
+    color: $color_link;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+
+    &:visited {
+        color: invert($color_link, 20%);
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: 0.3s ease-in-out;
+    }
+
+    &:hover, &:focus {
+        outline: none;
+
+        &::after {
+            background-color: currentColor;
+            transform: scaleX(100%);
+        }
+    }
+
+    // .link__icon
+
+    &__icon {
+        fill: currentColor;
+        margin-right: 0.5rem;
+
+        &--right {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+    }
+
+    // .link__text
+
+    &__text {
+
+    }
+}

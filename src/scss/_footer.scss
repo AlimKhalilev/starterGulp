@@ -1,14 +1,10 @@
 // === Footer [ Стили для футера, используемые на всех страницах ] ===
 
-.section-footer {
+.footer {
     background-color: $color_primary;
     padding: 1.5rem 0;
-
-    .section-inner {
     
-    }
-    
-    .footer {
+    &__inner {
         display: flex;
         justify-content: space-between;
     

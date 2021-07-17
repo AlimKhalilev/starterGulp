@@ -1,122 +1,170 @@
 // === header === [ Стили для навбара, используемые на всех страницах ] ===
 
-.section-header {
+.header {
     background-color: $color_header;
-    padding: 0.8rem 0;
     box-shadow: 0 0 1.25rem 0 rgba(0,0,0,0.1);
-
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 11;
+    margin: 0;
 
-    .section-inner {
-    
-    }
-    
-    .header {
+    // .header__inner
+
+    &__inner {
+        min-height: var(--header-min-height);
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         @media ($media_sm) {
             flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
         }
 
-        &-logo {
-
-            @media ($media_sm) {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-            }
-
-            .logo {
-                display: flex;
-                width: 15rem;
-
-                picture {
-                    display: inline-flex;
-                }
-
-                &-icon {
-                    max-width: 100%;
-                }
-            }
+        @media ($media_xs) {
+            width: 100%;
         }
+    }
 
-        &-controls {
+    // .header__logo
+
+    &__logo {
+
+        @media ($media_sm) {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            min-height: inherit;
 
-            @media ($media_sm) {
-                flex-direction: column;
-                align-items: flex-start;
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
 
-                &[data-burger='menu'] {
-                    display: none; // если бургер меню активно
-                    width: 100%;
-                }
-            }
+    // .header__controls
 
-            &-links {
-    
-                .menu {
-                    display: flex;
-    
-                    @media ($media_sm) {
-                        flex-direction: column;
-                    }
-    
-                    &-item {
-                        position: relative;
-                        padding: 0.5rem 0;
-    
-                        a {
-                            color: $color_black_main;
-                            text-decoration: none;
-                        }
-    
-                        &:not(:last-child) {
-                            margin-right: 1.5rem;
-                        }
-    
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            bottom: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 0.1rem;
-                            background-color: $color_black_main;
-                            transform: scaleX(0);
-                            transition: 0.3s ease-in-out;
+    &__controls {
+        display: flex;
+        align-items: center;
 
-                            @media ($media_sm) {
-                                content: none;
-                            }
-                        }
-    
-                        &:hover {
-                            &::after {
-                                transform: scaleX(1);
-                            }
-                        }
-                    }
-                }
-            }
+        @media ($media_sm) {
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 0 auto calc(var(--header-min-height) / 3);
 
-            &-select {
-                margin-left: 2rem;
-
-                @media ($media_sm) {
-                    margin: 0.8rem 0 0 0;
-                }
+            &[data-burger='menu'] {
+                display: none; // если бургер меню активно
+                width: 90%;
             }
         }
     }
+
+    // .header__links
+
+    &__links {
+
+    }
+
+    // .header__menu
+
+    &__menu {
+
+    }
+
+    // .header__select
+
+    &__select {
+        margin-left: 1.6rem;
+
+        @media ($media_sm) {
+            margin: 0.5rem 0 0 0;
+        }
+    }
+}
+
+.logo {
+
+    display: flex;
+    width: 14rem;
+
+    picture {
+        display: inline-flex;
+    }
+
+    // .logo__icon
+
+    &__icon {
+        
+    }
+}
+
+.menu {
+    display: flex;
     
+    @media ($media_sm) {
+        flex-direction: column;
+    }
+
+    // .menu__item
+
+    &__item {
+        position: relative;
+        padding: 0.3rem 0;
+
+        &:not(:last-child) {
+            margin-right: 1.2rem;
+
+            @media ($media_sm) {
+                margin: 0;
+            }
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0.1rem;
+            background-color: $color_black_main;
+            transform: scaleX(0);
+            transition: 0.3s ease-in-out;
+
+            @media ($media_sm) {
+                content: none;
+            }
+        }
+
+        &:hover {
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+
+        // .menu__item--active
+
+        &--active {
+
+            &::after {
+                background-color: $color_primary;
+            }
+
+            .menu__link {
+                color: $color_primary;
+            }
+        }
+    }
+
+    // .menu__link
+
+    &__link {
+        color: $color_black_main;
+        text-decoration: none;
+    }
 }
 
 // === / header ===

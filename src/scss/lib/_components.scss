@@ -1,0 +1,49 @@
+.components {
+
+    // .components__inner
+
+    &__inner {
+    }
+
+    // .components__elem
+
+    &__elem {
+        &:not(:last-child) {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+.input-group {
+
+    // .input-group__label
+
+    &__label {
+        display: inline-block;
+        font-weight: 500;
+        margin-bottom: 0.6rem;
+        text-decoration: underline;
+    }
+
+    // .input-group__elems
+
+    &__elems {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &--wrap {
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+
+    // .input-group__elem
+
+    &__elem {
+        &:not(:last-child) {
+            margin-bottom: 0.8rem;
+            margin-right: 0.8rem;
+        }
+    }
+}

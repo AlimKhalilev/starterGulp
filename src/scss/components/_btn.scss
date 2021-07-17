@@ -1,0 +1,139 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+
+    border: none;
+    outline: none;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    padding: 0 1.5rem;
+    height: 3.2rem;
+    @include cursorPointer;
+    font-weight: 500;
+    line-height: 1;
+    transition: 0.3s ease-in-out;
+
+    color: $color_white;
+
+    .btn__icon {
+        fill: $color_white;
+    }
+
+    &__text {
+
+    }
+
+    &__icon {
+        width: 1.2rem;
+        height: 1.2rem;
+
+        &--spaceLeft {
+            margin-left: 0.7rem;
+        }
+
+        &--spaceRight {
+            margin-right: 0.7rem;
+        }
+    }
+
+    &:hover, &:focus {
+        box-shadow: 0px 18px 22px -13px rgba(202, 181, 181, 0.51);
+    }
+
+    &--primary {
+        background-color: $color_primary;
+
+        &:hover, &:focus {
+            background-color: darken($color_primary, 10%);
+            box-shadow: 0px 18px 22px -13px lighten($color_primary, 15%);
+        }
+    }
+
+    &--success {
+        background-color: $color_success;
+
+        &:hover, &:focus {
+            background-color: darken($color_success, 10%);
+            box-shadow: 0px 18px 22px -13px lighten($color_success, 15%);
+        }
+    }
+
+    &--warning {
+        background-color: $color_warning;
+
+        &:hover, &:focus {
+            background-color: darken($color_warning, 10%);
+            box-shadow: 0px 18px 22px -13px lighten($color_warning, 15%);
+        }
+    }
+
+    &--bordered {
+        background-color: $color_white;
+        border: 2px solid;
+
+        &_primary {
+            border-color: $color_primary;
+            color: $color_primary;
+    
+            .btn__icon {
+                fill: $color_primary;
+            }
+    
+            &:hover, &:focus {
+                box-shadow: 0px 18px 22px -13px lighten($color_primary, 15%);
+            }
+        }
+
+        &_success {
+            border-color: $color_success;
+            color: $color_success;
+    
+            .btn__icon {
+                fill: $color_success;
+            }
+    
+            &:hover, &:focus {
+                box-shadow: 0px 18px 22px -13px lighten($color_success, 15%);
+            }
+        }
+
+    }
+
+    &--transparent {
+        background-color: transparent;
+        
+        &:hover, &:focus {
+            box-shadow: unset;
+        }
+
+        &_primary {
+            color: $color_primary;
+
+            &:hover, &:focus {
+                color: darken($color_primary, 10%);
+            }
+        }
+
+        &_danger {
+            color: $color_danger;
+
+            &:hover, &:focus {
+                color: darken($color_danger, 10%);
+            }
+        }
+
+        &_success {
+            color: $color_success;
+            
+            &:hover, &:focus {
+                color: darken($color_success, 10%);
+            }
+        }
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        pointer-events: none;
+    }
+
+}
