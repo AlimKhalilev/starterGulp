@@ -3,9 +3,7 @@
 
     &--opened {
         .details__body {
-            visibility: visible;
-            opacity: 1;
-            transform: scaleY(100%);
+            display: block;
         }
     }
 
@@ -16,10 +14,6 @@
     // .details__body
 
     &__body {
-        transition: 0.3s ease-in-out;
-        visibility: hidden;
-        opacity: 0;
-        transform: scaleY(0);
-        transform-origin: top;
+        display: none;
     }
 }

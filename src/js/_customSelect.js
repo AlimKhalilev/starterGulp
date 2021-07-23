@@ -39,17 +39,6 @@ function initCustomSelect() {
         });
     }
 
-    function placeCustomSelectOptionY(c_select__body) {
-        let html = document.documentElement;
-        let body = document.body;
-        let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-        let box = c_select__body.getBoundingClientRect();
-
-        if (Math.abs((height - (box.top + pageYOffset)) - c_select__body.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
-            c_select__body.classList.add("c-select__body--top");
-        }
-    }
-
     function renderCustomSelect(parent, nodeList, icon) {
         let c_select__inner = document.createElement("div");
         c_select__inner.classList.add("c-select__inner");
@@ -84,7 +73,7 @@ function initCustomSelect() {
 
         parent.appendChild(c_select__inner);
 
-        placeCustomSelectOptionY(c_select__body);
+        placeElemPositionY(c_select__body, "c-select__body--top");
 
         c_select__inner.addEventListener("click", function(e) {
             c_select__inner.classList.toggle("c-select__inner--open");

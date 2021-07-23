@@ -16,6 +16,15 @@
         }
     }
 
+    @media ($media_sm) {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .c-field__title {
+            margin: 0 0 0.5rem 0;
+        }
+    }
+
     // .c-field__title
 
     &__title {

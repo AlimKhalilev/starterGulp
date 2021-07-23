@@ -4,7 +4,9 @@
         @@include('_head.html', { "title": "starterGulp - Компоненты" })
     </head>
     <body>
-        @@include("_header.html")
+        @@include("_header.html", {
+            "components": "menu__item--active"
+        })
 
         <section class="section section--underHeader section--beforeFooter components">
             <div class="section__inner components__inner">
@@ -239,6 +241,63 @@
                             </div>
                             <div class="details__body">
                                 Очень очень важная информация!!
+                                <br>
+                                Очень очень важная информация!!
+                                <br>
+                                Очень очень важная информация!!
+                                <br>
+                                Очень очень важная информация!!
+                                <br>
+                                Очень очень важная информация!!
+                            </div>
+						</div>
+
+                        <div class="input-group__elem details" data-details>
+                            <div class="details__header">
+                                Нажми, и кое-что откроется!
+                            </div>
+                            <div class="details__body">
+                                <div class="input-group__elem">
+                                    <button class="btn btn--primary">
+                                        <svg class="icon icon-loupe btn__icon btn__icon--spaceRight"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                        <span class="btn__text">Кнопка с иконкой слева!</span>
+                                    </button>
+                                </div>
+                            </div>
+						</div>
+
+                    </div>
+                </div>
+
+
+                <div class="components__elem input-group">
+                    <span class="input-group__label">Dropdown block</span>
+
+                    <div class="input-group__elems">
+
+						<div class="input-group__elem">
+                            <div class="dropdown dropdown--hover">
+                                <div class="dropdown__header">
+                                    <button class="btn btn--primary">
+                                        Наведи на меня
+                                    </button>
+                                </div>
+                                <div class="dropdown__body">
+                                    <div class="content-box">Привет, тут какое-то содержание!</div>
+                                </div>
+                            </div>
+						</div>
+
+                        <div class="input-group__elem">
+                            <div class="dropdown dropdown--click">
+                                <div class="dropdown__header">
+                                    <button class="btn btn--primary">
+                                        Кликни на меня
+                                    </button>
+                                </div>
+                                <div class="dropdown__body">
+                                    <div class="content-box">Привет, тут какое-то содержание с огромным текстом, лучше нужно было использовать lorem!</div>
+                                </div>
                             </div>
 						</div>
 

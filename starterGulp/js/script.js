@@ -15,31 +15,52 @@ testWebP(function (support) {
 });;
 
 $(document).ready(function() {
- 
+
+    /* GLOBALS */
+
+    const g_html = document.documentElement;
+    const g_body = document.body;
+    const g_scrollBarWidth = getScrollBarWidth();
+
+    function getScrollBarWidth() { // получаем ширину скролла
+        let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
+        let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight); // общ. высота страницы
+
+        const scrollBlock = document.createElement("div");
+        scrollBlock.classList.add("scroll-block-dummy");
+        g_body.appendChild(scrollBlock);
+
+        const scrollBarWidth = scrollBlock.offsetWidth - scrollBlock.clientWidth;
+        g_body.removeChild(scrollBlock);
+        return (height > vh ? scrollBarWidth : 0); // если общая высота страницы больше видимой высоты, не добавляем ширину скролла
+    }
+
+    function placeElemPositionY(elem, className) { // устанавливаем элемент сверху или снизу от основного элемента
+        let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight);
+        let box = elem.getBoundingClientRect();
+
+        if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
+            elem.classList.add(className);
+        }
+    }
+    
+    // ##############
+
     function initModal() {
     let overlay = document.querySelector(".overlay--modal");
     let header = document.querySelector(".header"); // ему тоже будем добавлять paddingRight, так как он fixed
-    let html = document.documentElement;
-    let body = document.body;
-    let scrollBarWidth = 0
+    let withPaddingElems = [g_body, header]; // сюда добавляем все элементы, к которым хотим добавить padding 
 
-    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
-    let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight); // общ. высота страницы
-
-    if (height > vh) { // если общая высота страницы больше видимой высоты
-        scrollBarWidth = getScrollBarWidth(); // чтобы не прыгала ширина сайта при скрытии скролла добавляем padding-right
+    function toggleModal() {
+        overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
+        withPaddingElems.forEach(elem => { // и тут этот padding
+            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
+        });
     }
     
     function showModal(id) {
-        overlay.classList.add("visible");
-        body.classList.add("hideScroll");
-
-        body.style.paddingRight = `${scrollBarWidth}px`;
-        header.style.paddingRight = `${scrollBarWidth}px`;
-
-        // sections.forEach(item => {
-        //     item.style.paddingRight = `${scrollBarWidth}px`;
-        // });
+        toggleModal();
         document.querySelector(`#${id}`).classList.add("visible");
     }
 
@@ -51,24 +72,8 @@ $(document).ready(function() {
     function closeModal() {
         document.querySelector(".modal.visible").classList.remove("visible");
         setTimeout(() => {
-            overlay.classList.remove("visible");
-            body.classList.remove("hideScroll");
-            body.style.paddingRight = "";
-            header.style.paddingRight = "";
-            // sections.forEach(item => {
-            //     item.style.paddingRight = "";
-            // });
+            toggleModal();
         }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
-    }
-
-    function getScrollBarWidth() {
-        const scrollBlock = document.createElement("div");
-        scrollBlock.classList.add("scroll_block_dummy");
-        document.body.appendChild(scrollBlock);
-
-        const scrollBarWidth = scrollBlock.offsetWidth - scrollBlock.clientWidth;
-        document.body.removeChild(scrollBlock);
-        return scrollBarWidth;
     }
     
     document.querySelectorAll("[data-modal]").forEach(item => {
@@ -91,27 +96,11 @@ initModal();
     let button_burger = $("[data-burger='button']");
     let menu_burger = $("[data-burger='menu']");
     let overlay = document.querySelector(".overlay--burger");
-    let body = document.body;
-
-    function hideMenu() {
-        menu_burger.slideUp('normal');
-        overlay.classList.remove("visible");
-        body.classList.remove("hideScroll");
-    }
-
-    function showMenu() {
-        menu_burger.slideDown('normal');
-        overlay.classList.add("visible");
-        body.classList.add("hideScroll");
-    }
     
     $(button_burger).click(() => {
-        if (!menu_burger.is(':visible')) {
-            showMenu()
-        } 
-        else {
-            hideMenu()
-        }
+        menu_burger.slideToggle('normal');
+        overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
     });
 
     overlay.addEventListener("click", () => {
@@ -249,17 +238,6 @@ inputChangeTypePassword();
         });
     }
 
-    function placeCustomSelectOptionY(c_select__body) {
-        let html = document.documentElement;
-        let body = document.body;
-        let height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-        let box = c_select__body.getBoundingClientRect();
-
-        if (Math.abs((height - (box.top + pageYOffset)) - c_select__body.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
-            c_select__body.classList.add("c-select__body--top");
-        }
-    }
-
     function renderCustomSelect(parent, nodeList, icon) {
         let c_select__inner = document.createElement("div");
         c_select__inner.classList.add("c-select__inner");
@@ -294,7 +272,7 @@ inputChangeTypePassword();
 
         parent.appendChild(c_select__inner);
 
-        placeCustomSelectOptionY(c_select__body);
+        placeElemPositionY(c_select__body, "c-select__body--top");
 
         c_select__inner.addEventListener("click", function(e) {
             c_select__inner.classList.toggle("c-select__inner--open");
@@ -315,14 +293,82 @@ inputChangeTypePassword();
 
 initCustomSelect();
     function initDetails() {
-    document.querySelectorAll("[data-details]").forEach(item => {
-        let d_header = item.querySelector(".details__header");
-
-        d_header.addEventListener("click", function(e) {
-            item.classList.toggle("details--opened");
+    $("[data-details]").each(function() {
+        $(this).click(() => {
+            $(this).find(".details__body").slideToggle('normal'); // плавно открываем или закрываем body details
+            $(this).toggleClass("details--opened"); // по необходимости добавляем модификатор открытого details
         });
     });
+
 }
 
 initDetails();
+
+/*
+// код был написан, дабы избежать использования jquery, однако он хуже и менее читабельный
+// желательно доработь код и сделать более читабельным
+
+function moveDetailsBody(body, height, state) {
+    let counterHeight = (state === 1 ? 0 : height);
+    let counterStep = 2;
+    let counterDelay = 5;
+
+    let interval = setInterval(() => {
+        counterHeight += counterStep * +state;
+        body.style.height = counterHeight + "px";
+
+        if ((state === 1 && counterHeight >= height) || (state === -1 && counterHeight <= 0)) {
+            clearTimeout(interval);
+            body.style.height = (state === 1 ? height : 0) + "px";
+        }
+
+    }, counterDelay);
+}
+
+document.querySelectorAll("[data-details]").forEach(item => {
+    let d_header = item.querySelector(".details__header");
+    let d_body = item.querySelector(".details__body");
+    let d_body_height = d_body.offsetHeight;
+    d_body.style.height = 0;
+
+    d_header.addEventListener("click", function() {
+        item.classList.toggle("details--opened");
+        moveDetailsBody(d_body, d_body_height, (d_body.offsetHeight === 0 ? 1 : -1));
+    });
+});
+
+*/
+    function initDropdown() {
+    // document.querySelectorAll(".dropdown--click").forEach(item => {
+    //     item.addEventListener("click", () => {
+    //         item.classList.toggle("dropdown--active");
+    //     });
+    // });
+    $(".dropdown").each(function () {
+        let header = $(this).find(".dropdown__header");
+        let body = $(this).find(".dropdown__body");
+
+        placeElemPositionY(body[0], "dropdown__body--top"); // позиционируем сверху, если он смещает контент
+        body.hide();
+
+        if ($(this).hasClass("dropdown--click")) { // если имеет модификатор клика, вешаем событие на клик (тип dropdown)
+            header.click(function () {
+                body.fadeToggle("slow");
+            });
+        }
+        else if ($(this).hasClass("dropdown--hover")) { // если нет, вешаем событие на наведение (тип tooltip)
+            header.hover(
+                function () {
+                    body.fadeToggle("slow");
+                }, function () {
+                    body.fadeToggle("slow");
+                }
+            );
+        }
+    });
+
+
+}
+
+initDropdown();
 });

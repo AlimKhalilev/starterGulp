@@ -1,0 +1,55 @@
+.dropdown {
+    position: relative;
+
+    // .dropdown--hover
+
+    &--hover {
+
+        &:hover {
+
+            .dropdown__body {
+                display: block;
+            }
+        }
+    }
+
+    // .dropdown--click
+
+    &--click {
+
+    }
+
+    // .dropdown--active
+
+    &--active {
+        .dropdown__body {
+            display: block;
+        }
+    }
+
+    // .dropdown__header
+
+    &__header {
+
+    }
+
+    // .dropdown__body
+
+    &__body {
+        //display: none;
+
+        position: absolute;
+        left: 0;
+        z-index: 1;
+        bottom: -0.5rem;
+        transform: translateY(100%);
+
+        // .dropdown__body--top
+
+        &--top {
+            bottom: unset;
+            top: -0.5rem;
+            transform: translateY(-100%);
+        }
+    }
+}
