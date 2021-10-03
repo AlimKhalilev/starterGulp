@@ -1,3 +1,99 @@
+class Modal {
+    static overlay = document.querySelector(".overlay--modal");
+    static header = document.querySelector(".header");
+    static paddingElems = [g_body, this.header];
+
+    static toggle() {
+        this.overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
+        this.paddingElems.forEach(elem => { // и тут этот padding
+            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
+        });
+    }
+
+    static show(id) {
+        this.toggle();
+        document.querySelector(`#${id}`).classList.add("visible");
+    }
+
+    static change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
+        this.close();
+        setTimeout(() => this.show(id), 700);
+    }
+
+    static close() {
+        document.querySelector(".modal.visible").classList.remove("visible");
+        setTimeout(() => {
+            this.toggle();
+        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
+    }
+
+    static initEvents() {
+        document.querySelectorAll("[data-modal]").forEach(item => {
+            item.addEventListener("click", () => {
+                this.show(item.dataset.modal)
+            });
+        });
+    
+        document.querySelectorAll("[data-changeModal]").forEach(item => {
+            item.addEventListener("click", () => this.change(item.dataset.changemodal));
+        });
+        
+        document.querySelectorAll("[data-closeModal]").forEach(item => {
+            item.addEventListener("click", () => this.close());
+        });
+    }
+}
+
+Modal.initEvents();
+
+const modal = {
+    overlay: document.querySelector(".overlay--modal"),
+    header: document.querySelector(".header"), // ему тоже будем добавлять paddingRight, так как он fixed 
+
+    getPaddingElems() { // сюда добавляем все элементы, к которым хотим добавить padding 
+        return [g_body, this.header];
+    },
+    toggle() {
+        this.overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
+        this.getPaddingElems().forEach(elem => { // и тут этот padding
+            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
+        });
+    },
+    show(id) {
+        this.toggle();
+        document.querySelector(`#${id}`).classList.add("visible");
+    },
+    change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
+        this.close();
+        setTimeout(() => this.show(id), 700);
+    },
+    close() {
+        document.querySelector(".modal.visible").classList.remove("visible");
+        setTimeout(() => {
+            this.toggle();
+        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
+    },
+    initEvents() {
+        document.querySelectorAll("[data-modal]").forEach(item => {
+            item.addEventListener("click", () => {
+                this.show(item.dataset.modal)
+            });
+        });
+    
+        document.querySelectorAll("[data-changeModal]").forEach(item => {
+            item.addEventListener("click", () => this.change(item.dataset.changemodal));
+        });
+        
+        document.querySelectorAll("[data-closeModal]").forEach(item => {
+            item.addEventListener("click", () => this.close());
+        });
+    }
+}
+
+//modal.initEvents();
+
 function initModal() {
     let overlay = document.querySelector(".overlay--modal");
     let header = document.querySelector(".header"); // ему тоже будем добавлять paddingRight, так как он fixed
@@ -43,4 +139,4 @@ function initModal() {
     });
 }
 
-initModal();
+//initModal();

@@ -4,7 +4,7 @@ function initScroll() {
     document.querySelectorAll("[data-scroll]").forEach(item => {
         item.addEventListener("click", (e) => {
             e.preventDefault();
-            scrollTo(e.target.dataset.scroll)
+            scrollTo(e.target.dataset.scroll);
         });
     });
 

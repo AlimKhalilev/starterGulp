@@ -15,38 +15,132 @@ testWebP(function (support) {
 });;
 
 $(document).ready(function() {
-
+    
     /* GLOBALS */
 
-    const g_html = document.documentElement;
-    const g_body = document.body;
-    const g_scrollBarWidth = getScrollBarWidth();
+const g_html = document.documentElement;
+const g_body = document.body;
+const g_scrollBarWidth = getScrollBarWidth();
+  
+function getScrollBarWidth() { // получаем ширину скролла
+    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
+    let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight); // общ. высота страницы
 
-    function getScrollBarWidth() { // получаем ширину скролла
-        let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
-        let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight); // общ. высота страницы
+    const scrollBlock = document.createElement("div");
+    scrollBlock.classList.add("scroll-block-dummy");
+    g_body.appendChild(scrollBlock);
 
-        const scrollBlock = document.createElement("div");
-        scrollBlock.classList.add("scroll-block-dummy");
-        g_body.appendChild(scrollBlock);
+    const scrollBarWidth = scrollBlock.offsetWidth - scrollBlock.clientWidth;
+    g_body.removeChild(scrollBlock);
+    return (height > vh ? scrollBarWidth : 0); // если общая высота страницы больше видимой высоты, не добавляем ширину скролла
+}
 
-        const scrollBarWidth = scrollBlock.offsetWidth - scrollBlock.clientWidth;
-        g_body.removeChild(scrollBlock);
-        return (height > vh ? scrollBarWidth : 0); // если общая высота страницы больше видимой высоты, не добавляем ширину скролла
+function placeElemPositionY(elem, className) { // устанавливаем элемент сверху или снизу от основного элемента
+    let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight);
+    let box = elem.getBoundingClientRect();
+
+    if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
+        elem.classList.add(className);
+    }
+}
+
+    class Modal {
+    static overlay = document.querySelector(".overlay--modal");
+    static header = document.querySelector(".header");
+    static paddingElems = [g_body, this.header];
+
+    static toggle() {
+        this.overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
+        this.paddingElems.forEach(elem => { // и тут этот padding
+            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
+        });
     }
 
-    function placeElemPositionY(elem, className) { // устанавливаем элемент сверху или снизу от основного элемента
-        let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight);
-        let box = elem.getBoundingClientRect();
-
-        if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
-            elem.classList.add(className);
-        }
+    static show(id) {
+        this.toggle();
+        document.querySelector(`#${id}`).classList.add("visible");
     }
+
+    static change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
+        this.close();
+        setTimeout(() => this.show(id), 700);
+    }
+
+    static close() {
+        document.querySelector(".modal.visible").classList.remove("visible");
+        setTimeout(() => {
+            this.toggle();
+        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
+    }
+
+    static initEvents() {
+        document.querySelectorAll("[data-modal]").forEach(item => {
+            item.addEventListener("click", () => {
+                this.show(item.dataset.modal)
+            });
+        });
     
-    // ##############
+        document.querySelectorAll("[data-changeModal]").forEach(item => {
+            item.addEventListener("click", () => this.change(item.dataset.changemodal));
+        });
+        
+        document.querySelectorAll("[data-closeModal]").forEach(item => {
+            item.addEventListener("click", () => this.close());
+        });
+    }
+}
 
-    function initModal() {
+Modal.initEvents();
+
+const modal = {
+    overlay: document.querySelector(".overlay--modal"),
+    header: document.querySelector(".header"), // ему тоже будем добавлять paddingRight, так как он fixed 
+
+    getPaddingElems() { // сюда добавляем все элементы, к которым хотим добавить padding 
+        return [g_body, this.header];
+    },
+    toggle() {
+        this.overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
+        this.getPaddingElems().forEach(elem => { // и тут этот padding
+            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
+        });
+    },
+    show(id) {
+        this.toggle();
+        document.querySelector(`#${id}`).classList.add("visible");
+    },
+    change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
+        this.close();
+        setTimeout(() => this.show(id), 700);
+    },
+    close() {
+        document.querySelector(".modal.visible").classList.remove("visible");
+        setTimeout(() => {
+            this.toggle();
+        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
+    },
+    initEvents() {
+        document.querySelectorAll("[data-modal]").forEach(item => {
+            item.addEventListener("click", () => {
+                this.show(item.dataset.modal)
+            });
+        });
+    
+        document.querySelectorAll("[data-changeModal]").forEach(item => {
+            item.addEventListener("click", () => this.change(item.dataset.changemodal));
+        });
+        
+        document.querySelectorAll("[data-closeModal]").forEach(item => {
+            item.addEventListener("click", () => this.close());
+        });
+    }
+}
+
+//modal.initEvents();
+
+function initModal() {
     let overlay = document.querySelector(".overlay--modal");
     let header = document.querySelector(".header"); // ему тоже будем добавлять paddingRight, так как он fixed
     let withPaddingElems = [g_body, header]; // сюда добавляем все элементы, к которым хотим добавить padding 
@@ -91,7 +185,7 @@ $(document).ready(function() {
     });
 }
 
-initModal();
+//initModal();
     function initBurgerMenu() {
     let button_burger = $("[data-burger='button']");
     let menu_burger = $("[data-burger='menu']");
@@ -160,7 +254,7 @@ initSlider();
     document.querySelectorAll("[data-scroll]").forEach(item => {
         item.addEventListener("click", (e) => {
             e.preventDefault();
-            scrollTo(e.target.dataset.scroll)
+            scrollTo(e.target.dataset.scroll);
         });
     });
 
@@ -371,4 +465,5 @@ document.querySelectorAll("[data-details]").forEach(item => {
 }
 
 initDropdown();
+
 });
