@@ -12,10 +12,9 @@
 }
 
 @mixin cursorPointer { // чтобы на смартфонах не было явного выделения элемента
-    cursor: pointer;
-
-    @media ($media_sm) {
-        cursor: initial;
+    
+    @media ($media_not_sm) {
+        cursor: pointer;
     }
 }
 

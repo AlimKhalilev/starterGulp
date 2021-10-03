@@ -1,19 +1,25 @@
-function initScroll() {
-    let overlay_burger = document.querySelector(".overlay--burger");
+class Scroll {
+    static overlayBurger = document.querySelector(".overlay--burger");
 
-    document.querySelectorAll("[data-scroll]").forEach(item => {
-        item.addEventListener("click", (e) => {
-            e.preventDefault();
-            scrollTo(e.target.dataset.scroll);
-        });
-    });
-
-    function scrollTo(target) {
-        if (document.querySelector(".overlay--burger.visible") !== null) { // если в момент клика открыта шторка бургер-меню
-            overlay_burger.click();
+    static checkBeforeMove() {
+        if (this.overlayBurger.classList.contains("visible")) { // если в момент клика открыта шторка бургер-меню
+            this.overlayBurger.click();
         }
+    }
+
+    static moveTo(target) {
+        this.checkBeforeMove();
         document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    static initEvents() {
+        document.querySelectorAll("[data-scroll]").forEach(item => {
+            item.addEventListener("click", (e) => {
+                e.preventDefault();
+                this.moveTo(e.target.dataset.scroll);
+            });
+        });
     }
 }
 
-initScroll();
+Scroll.initEvents();

@@ -14,4 +14,6 @@ $(document).ready(function() {
     --include("_details.js")
     --include("_dropdown.js")
 
+    --include("_adaptImg.js")
+
 });

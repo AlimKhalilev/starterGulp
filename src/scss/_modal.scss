@@ -23,6 +23,13 @@
         padding: 1.5rem;
     }
 
+    // .modal__body
+
+    &__body {
+        max-height: 80vh;
+        overflow-y: auto;
+    }
+
     // .modal__header
 
     &__header {

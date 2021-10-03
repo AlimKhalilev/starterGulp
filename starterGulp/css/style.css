@@ -1021,6 +1021,7 @@ ul {
 .lSAction > .lSPrev,
 .lSAction > .lSNext {
   background-position: center;
+  background-size: 40%;
 }
 
 .lSAction > .lSPrev {
@@ -1351,7 +1352,6 @@ body.hideScroll {
   border-radius: 0.5rem;
   padding: 0 1.5rem;
   height: 3.2rem;
-  cursor: pointer;
   font-weight: 500;
   line-height: 1;
   -webkit-transition: 0.3s ease-in-out;
@@ -1560,7 +1560,6 @@ body.hideScroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  cursor: pointer;
 }
 
 .c-checkbox--radio .c-checkbox__box {
@@ -1655,10 +1654,6 @@ body.hideScroll {
   position: relative;
 }
 
-.c-field__area[data-passwordSwitcher] {
-  cursor: pointer;
-}
-
 .c-field__area--icon .c-field__input {
   padding-right: calc(var(--inputPaddingX) + var(--iconSize) + 0.4rem);
 }
@@ -1745,7 +1740,6 @@ body.hideScroll {
 }
 
 .c-select__inner {
-  cursor: pointer;
   position: relative;
   display: inline-block;
   min-width: 12rem;
@@ -1856,10 +1850,6 @@ body.hideScroll {
   display: block;
 }
 
-.details__header {
-  cursor: pointer;
-}
-
 .details__body {
   display: none;
 }
@@ -1915,6 +1905,11 @@ body.hideScroll {
 
 .modal.visible {
   top: 50%;
+}
+
+.modal__body {
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .modal__header {
@@ -2163,9 +2158,31 @@ body.hideScroll {
   padding: 5rem 0;
 }
 
+@media (min-width: 769px) {
+  .btn {
+    cursor: pointer;
+  }
+
+  .c-checkbox {
+    cursor: pointer;
+  }
+
+  .c-field__area[data-passwordSwitcher] {
+    cursor: pointer;
+  }
+
+  .c-select__inner {
+    cursor: pointer;
+  }
+
+  .details__header {
+    cursor: pointer;
+  }
+}
+
 @media (max-width: 1600px) {
   .section__inner {
-    max-width: 1200px;
+    max-width: 1150px;
   }
 }
 
@@ -2222,14 +2239,6 @@ body.hideScroll {
     display: flex;
   }
 
-  .btn {
-    cursor: initial;
-  }
-
-  .c-checkbox {
-    cursor: initial;
-  }
-
   .c-field {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2242,18 +2251,6 @@ body.hideScroll {
 
   .c-field .c-field__title {
     margin: 0 0 0.5rem 0;
-  }
-
-  .c-field__area[data-passwordSwitcher] {
-    cursor: initial;
-  }
-
-  .c-select__inner {
-    cursor: initial;
-  }
-
-  .details__header {
-    cursor: initial;
   }
 
   .header__inner {

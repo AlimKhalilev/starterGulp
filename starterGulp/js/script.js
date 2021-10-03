@@ -207,15 +207,16 @@ initBurgerMenu();
     // link: http://sachinchoolur.github.io/lightslider/
 
 function initSlider() {
-    // data-slider="4,2,1" (СТРОКА, ГДЕ ЧИСЛА ЧЕРЕЗ ЗАПЯТУЮ БЕЗ ПРОБЕЛОВ: число элементов на компе, на планшете, на мобилках)
+    // data-slider="4,3,2,1" (СТРОКА, ГДЕ ЧИСЛА ЧЕРЕЗ ЗАПЯТУЮ БЕЗ ПРОБЕЛОВ: число элементов на компе, на ноуте, на планшете, на мобилках)
 
-    let screen_xs = 576; // mobile
-    let screen_sm = 768; // mobile-reverse
+    let screen_sm = 768; // mobile
+    let screen_md = 992; // planshet
+    let screen_lg = 1280; // notebooks
 
     $("[data-slider]").each(function(_, elem) {
         let items = elem.dataset.slider.split(",");
-        if (items.length != 3) { // если в dataset слайдера нет 3 количеств элементов для 3 разрешений 
-            items = [1, 1, 1]; // на всех разрешениях будет по 1 элементу
+        if (items.length != 4) { // если в dataset слайдера нет 3 количеств элементов для 3 разрешений 
+            items = [1, 1, 1, 1]; // на всех разрешениях будет по 1 элементу
         }
         else {
             items = items.map(e => +e); // преобразуем строки в числа
@@ -230,15 +231,21 @@ function initSlider() {
             speed: 600,
             responsive: [
                 {
-                    breakpoint: screen_sm,
+                    breakpoint: screen_lg,
                     settings: {
                         item: items[1],
                     }
                 },
                 {
-                    breakpoint: screen_xs,
+                    breakpoint: screen_md,
                     settings: {
                         item: items[2],
+                    }
+                },
+                {
+                    breakpoint: screen_sm,
+                    settings: {
+                        item: items[3],
                     }
                 }
             ]
@@ -248,25 +255,31 @@ function initSlider() {
 }
 
 initSlider();
-    function initScroll() {
-    let overlay_burger = document.querySelector(".overlay--burger");
+    class Scroll {
+    static overlayBurger = document.querySelector(".overlay--burger");
 
-    document.querySelectorAll("[data-scroll]").forEach(item => {
-        item.addEventListener("click", (e) => {
-            e.preventDefault();
-            scrollTo(e.target.dataset.scroll);
-        });
-    });
-
-    function scrollTo(target) {
-        if (document.querySelector(".overlay--burger.visible") !== null) { // если в момент клика открыта шторка бургер-меню
-            overlay_burger.click();
+    static checkBeforeMove() {
+        if (this.overlayBurger.classList.contains("visible")) { // если в момент клика открыта шторка бургер-меню
+            this.overlayBurger.click();
         }
+    }
+
+    static moveTo(target) {
+        this.checkBeforeMove();
         document.querySelector(target).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    static initEvents() {
+        document.querySelectorAll("[data-scroll]").forEach(item => {
+            item.addEventListener("click", (e) => {
+                e.preventDefault();
+                this.moveTo(e.target.dataset.scroll);
+            });
+        });
     }
 }
 
-initScroll();
+Scroll.initEvents();
     
     function inputChangeTypePassword() {
     let pathSvg = "img/sprite.svg";
@@ -465,5 +478,23 @@ document.querySelectorAll("[data-details]").forEach(item => {
 }
 
 initDropdown();
+
+    function adaptImg() {
+    let basePixel = 16;
+
+    setTimeout(() => { // на всякий случай, чтобы не было нулевых размеров 
+        document.querySelectorAll("[adaptImg]").forEach(item => {
+            let width = item.naturalWidth / basePixel;
+            let height = item.naturalHeight / basePixel;
+
+            if (width > 0) {
+                item.style.width = `${width}rem`;
+                //item.style.height = `${height}rem`;
+            }
+        });
+    }, 50);
+}
+
+adaptImg();
 
 });
