@@ -13,8 +13,6 @@ testWebP(function (support) {
         document.querySelector('body').classList.add('webp-support');
     }
 });;
-
-$(document).ready(function() {
     
     /* GLOBALS */
 
@@ -23,7 +21,7 @@ const g_body = document.body;
 const g_scrollBarWidth = getScrollBarWidth();
   
 function getScrollBarWidth() { // получаем ширину скролла
-    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
+    let vh = Math.max(g_html.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
     let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight); // общ. высота страницы
 
     const scrollBlock = document.createElement("div");
@@ -48,18 +46,25 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
     static overlay = document.querySelector(".overlay--modal");
     static header = document.querySelector(".header");
     static paddingElems = [g_body, this.header];
+    static isModalVisible = false; // открыто ли какое-либо модальное окно
 
-    static toggle() {
+    static toggleOverlay() {
         this.overlay.classList.toggle("visible");
         g_body.classList.toggle("hideScroll");
-        this.paddingElems.forEach(elem => { // и тут этот padding
+        this.paddingElems.forEach(elem => { // все элементы, куда нужно добавить padding - добавляем
             elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
         });
     }
 
     static show(id) {
-        this.toggle();
-        document.querySelector(`#${id}`).classList.add("visible");
+        if (!this.isModalVisible) {
+            this.toggleOverlay();
+            document.querySelector(`#${id}`).classList.add("visible");
+            this.isModalVisible = true;
+        }
+        else {
+            return "Модальное окно уже открыто!";
+        }
     }
 
     static change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
@@ -68,10 +73,16 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
     }
 
     static close() {
-        document.querySelector(".modal.visible").classList.remove("visible");
-        setTimeout(() => {
-            this.toggle();
-        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
+        if (this.isModalVisible) {
+            document.querySelector(".modal.visible").classList.remove("visible");
+            setTimeout(() => {
+                this.toggleOverlay();
+                this.isModalVisible = false;
+            }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
+        }
+        else {
+            return "Активное модальное окно отсутствует!";
+        }
     }
 
     static initEvents() {
@@ -92,118 +103,34 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
 }
 
 Modal.initEvents();
+    class BurgerMenu {
+    static button_burger = $("[data-burger='button']");
+    static menu_burger = $("[data-burger='menu']");
+    static overlay = document.querySelector(".overlay--burger");
+    static checkbox = $(this.button_burger).find("input");
+    static state = false;
 
-const modal = {
-    overlay: document.querySelector(".overlay--modal"),
-    header: document.querySelector(".header"), // ему тоже будем добавлять paddingRight, так как он fixed 
-
-    getPaddingElems() { // сюда добавляем все элементы, к которым хотим добавить padding 
-        return [g_body, this.header];
-    },
-    toggle() {
+    static toggle() {
+        this.menu_burger.slideToggle('normal');
         this.overlay.classList.toggle("visible");
         g_body.classList.toggle("hideScroll");
-        this.getPaddingElems().forEach(elem => { // и тут этот padding
-            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
-        });
-    },
-    show(id) {
-        this.toggle();
-        document.querySelector(`#${id}`).classList.add("visible");
-    },
-    change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
-        this.close();
-        setTimeout(() => this.show(id), 700);
-    },
-    close() {
-        document.querySelector(".modal.visible").classList.remove("visible");
-        setTimeout(() => {
+
+        this.checkbox.prop("checked", !this.state); 
+        this.state = !this.state;
+    }
+
+    static initEvents() {
+        this.overlay.addEventListener("click", () => {
             this.toggle();
-        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
-    },
-    initEvents() {
-        document.querySelectorAll("[data-modal]").forEach(item => {
-            item.addEventListener("click", () => {
-                this.show(item.dataset.modal)
-            });
         });
-    
-        document.querySelectorAll("[data-changeModal]").forEach(item => {
-            item.addEventListener("click", () => this.change(item.dataset.changemodal));
-        });
-        
-        document.querySelectorAll("[data-closeModal]").forEach(item => {
-            item.addEventListener("click", () => this.close());
+
+        $(this.checkbox).change(() => {
+            this.toggle();
         });
     }
 }
 
-//modal.initEvents();
-
-function initModal() {
-    let overlay = document.querySelector(".overlay--modal");
-    let header = document.querySelector(".header"); // ему тоже будем добавлять paddingRight, так как он fixed
-    let withPaddingElems = [g_body, header]; // сюда добавляем все элементы, к которым хотим добавить padding 
-
-    function toggleModal() {
-        overlay.classList.toggle("visible");
-        g_body.classList.toggle("hideScroll");
-        withPaddingElems.forEach(elem => { // и тут этот padding
-            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${g_scrollBarWidth}px` : "");
-        });
-    }
-    
-    function showModal(id) {
-        toggleModal();
-        document.querySelector(`#${id}`).classList.add("visible");
-    }
-
-    function changeModal(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
-        closeModal();
-        setTimeout(() => showModal(id), 700);
-    }
-    
-    function closeModal() {
-        document.querySelector(".modal.visible").classList.remove("visible");
-        setTimeout(() => {
-            toggleModal();
-        }, 150); // так как 0.3s ease-in-out, это нужно чтобы окно модальное не прыгало резко влево во время закрытия
-    }
-    
-    document.querySelectorAll("[data-modal]").forEach(item => {
-        item.addEventListener("click", () => {
-            showModal(item.dataset.modal)
-        });
-    });
-
-    document.querySelectorAll("[data-changeModal]").forEach(item => {
-        item.addEventListener("click", () => changeModal(item.dataset.changemodal));
-    });
-    
-    document.querySelectorAll("[data-closeModal]").forEach(item => {
-        item.addEventListener("click", () => closeModal());
-    });
-}
-
-//initModal();
-    function initBurgerMenu() {
-    let button_burger = $("[data-burger='button']");
-    let menu_burger = $("[data-burger='menu']");
-    let overlay = document.querySelector(".overlay--burger");
-    
-    $(button_burger).click(() => {
-        menu_burger.slideToggle('normal');
-        overlay.classList.toggle("visible");
-        g_body.classList.toggle("hideScroll");
-    });
-
-    overlay.addEventListener("click", () => {
-        $(button_burger).click();
-        $(button_burger).find("input").prop('checked', false);
-    });
-}
-
-initBurgerMenu();
+BurgerMenu.initEvents();
     // link: http://sachinchoolur.github.io/lightslider/
 
 function initSlider() {
@@ -260,7 +187,7 @@ initSlider();
 
     static checkBeforeMove() {
         if (this.overlayBurger.classList.contains("visible")) { // если в момент клика открыта шторка бургер-меню
-            this.overlayBurger.click();
+            BurgerMenu.toggle(); // закрываем ее
         }
     }
 
@@ -401,12 +328,11 @@ inputChangeTypePassword();
 initCustomSelect();
     function initDetails() {
     $("[data-details]").each(function() {
-        $(this).click(() => {
+        $(this).find(".details__header").click(() => {
             $(this).find(".details__body").slideToggle('normal'); // плавно открываем или закрываем body details
             $(this).toggleClass("details--opened"); // по необходимости добавляем модификатор открытого details
         });
     });
-
 }
 
 initDetails();
@@ -496,5 +422,3 @@ initDropdown();
 }
 
 adaptImg();
-
-});

@@ -5,7 +5,7 @@ const g_body = document.body;
 const g_scrollBarWidth = getScrollBarWidth();
   
 function getScrollBarWidth() { // получаем ширину скролла
-    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
+    let vh = Math.max(g_html.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
     let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight); // общ. высота страницы
 
     const scrollBlock = document.createElement("div");

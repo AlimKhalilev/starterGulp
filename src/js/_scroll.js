@@ -3,7 +3,7 @@ class Scroll {
 
     static checkBeforeMove() {
         if (this.overlayBurger.classList.contains("visible")) { // если в момент клика открыта шторка бургер-меню
-            this.overlayBurger.click();
+            BurgerMenu.toggle(); // закрываем ее
         }
     }
 

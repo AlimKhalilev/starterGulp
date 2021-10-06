@@ -1,6 +1,4 @@
 --include("_webpsup.js");
-
-$(document).ready(function() {
     
     --include("_globals.js")
 
@@ -15,5 +13,3 @@ $(document).ready(function() {
     --include("_dropdown.js")
 
     --include("_adaptImg.js")
-
-});

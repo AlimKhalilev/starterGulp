@@ -1,18 +1,28 @@
-function initBurgerMenu() {
-    let button_burger = $("[data-burger='button']");
-    let menu_burger = $("[data-burger='menu']");
-    let overlay = document.querySelector(".overlay--burger");
-    
-    $(button_burger).click(() => {
-        menu_burger.slideToggle('normal');
-        overlay.classList.toggle("visible");
-        g_body.classList.toggle("hideScroll");
-    });
+class BurgerMenu {
+    static button_burger = $("[data-burger='button']");
+    static menu_burger = $("[data-burger='menu']");
+    static overlay = document.querySelector(".overlay--burger");
+    static checkbox = $(this.button_burger).find("input");
+    static state = false;
 
-    overlay.addEventListener("click", () => {
-        $(button_burger).click();
-        $(button_burger).find("input").prop('checked', false);
-    });
+    static toggle() {
+        this.menu_burger.slideToggle('normal');
+        this.overlay.classList.toggle("visible");
+        g_body.classList.toggle("hideScroll");
+
+        this.checkbox.prop("checked", !this.state); 
+        this.state = !this.state;
+    }
+
+    static initEvents() {
+        this.overlay.addEventListener("click", () => {
+            this.toggle();
+        });
+
+        $(this.checkbox).change(() => {
+            this.toggle();
+        });
+    }
 }
 
-initBurgerMenu();
+BurgerMenu.initEvents();
