@@ -6,12 +6,17 @@ class BurgerMenu {
     static state = false;
 
     static toggle() {
-        this.menu_burger.slideToggle('normal');
-        this.overlay.classList.toggle("visible");
-        g_body.classList.toggle("hideScroll");
-
-        this.checkbox.prop("checked", !this.state); 
-        this.state = !this.state;
+        if (this.button_burger.is(':visible')) { // если иконка бургерного меню видна (мы на мобилке)
+            this.menu_burger.slideToggle('normal');
+            this.overlay.classList.toggle("visible");
+            g_body.classList.toggle("hideScroll");
+    
+            this.checkbox.prop("checked", !this.state); 
+            this.state = !this.state;
+        }
+        else {
+            return "Невозможно открыть бургерное меню, так как его переключатель на данный момент скрыт";
+        }
     }
 
     static initEvents() {

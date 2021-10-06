@@ -13,19 +13,15 @@ class Modal {
     }
 
     static show(id) {
-        if (!this.isModalVisible) {
+        if (this.isModalVisible) { // если уже открыта какая-то модалка
+            this.close(); // закрыть текущее модальное окно, и открыть новое через 700 мс
+            setTimeout(() => this.show(id), 700);
+        }
+        else {
             this.toggleOverlay();
             document.querySelector(`#${id}`).classList.add("visible");
             this.isModalVisible = true;
         }
-        else {
-            return "Модальное окно уже открыто!";
-        }
-    }
-
-    static change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
-        this.close();
-        setTimeout(() => this.show(id), 700);
     }
 
     static close() {
@@ -46,10 +42,6 @@ class Modal {
             item.addEventListener("click", () => {
                 this.show(item.dataset.modal)
             });
-        });
-    
-        document.querySelectorAll("[data-changeModal]").forEach(item => {
-            item.addEventListener("click", () => this.change(item.dataset.changemodal));
         });
         
         document.querySelectorAll("[data-closeModal]").forEach(item => {

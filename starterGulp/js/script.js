@@ -57,19 +57,15 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
     }
 
     static show(id) {
-        if (!this.isModalVisible) {
+        if (this.isModalVisible) { // если уже открыта какая-то модалка
+            this.close(); // закрыть текущее модальное окно, и открыть новое через 700 мс
+            setTimeout(() => this.show(id), 700);
+        }
+        else {
             this.toggleOverlay();
             document.querySelector(`#${id}`).classList.add("visible");
             this.isModalVisible = true;
         }
-        else {
-            return "Модальное окно уже открыто!";
-        }
-    }
-
-    static change(id) { // закрыть текущее модальное окно, и открыть новое через 700 мс
-        this.close();
-        setTimeout(() => this.show(id), 700);
     }
 
     static close() {
@@ -91,10 +87,6 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
                 this.show(item.dataset.modal)
             });
         });
-    
-        document.querySelectorAll("[data-changeModal]").forEach(item => {
-            item.addEventListener("click", () => this.change(item.dataset.changemodal));
-        });
         
         document.querySelectorAll("[data-closeModal]").forEach(item => {
             item.addEventListener("click", () => this.close());
@@ -111,12 +103,17 @@ Modal.initEvents();
     static state = false;
 
     static toggle() {
-        this.menu_burger.slideToggle('normal');
-        this.overlay.classList.toggle("visible");
-        g_body.classList.toggle("hideScroll");
-
-        this.checkbox.prop("checked", !this.state); 
-        this.state = !this.state;
+        if (this.button_burger.is(':visible')) { // если иконка бургерного меню видна (мы на мобилке)
+            this.menu_burger.slideToggle('normal');
+            this.overlay.classList.toggle("visible");
+            g_body.classList.toggle("hideScroll");
+    
+            this.checkbox.prop("checked", !this.state); 
+            this.state = !this.state;
+        }
+        else {
+            return "Невозможно открыть бургерное меню, так как его переключатель на данный момент скрыт";
+        }
     }
 
     static initEvents() {
