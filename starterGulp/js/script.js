@@ -14,7 +14,7 @@ testWebP(function (support) {
     }
 });;
     
-    /* GLOBALS */
+/* GLOBALS */
 
 const g_html = document.documentElement;
 const g_body = document.body;
@@ -42,7 +42,7 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
     }
 }
 
-    class Modal {
+class Modal {
     static overlay = document.querySelector(".overlay--modal");
     static header = document.querySelector(".header");
     static paddingElems = [g_body, this.header];
@@ -95,7 +95,7 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
 }
 
 Modal.initEvents();
-    class BurgerMenu {
+class BurgerMenu {
     static button_burger = $("[data-burger='button']");
     static menu_burger = $("[data-burger='menu']");
     static overlay = document.querySelector(".overlay--burger");
@@ -128,7 +128,7 @@ Modal.initEvents();
 }
 
 BurgerMenu.initEvents();
-    // link: http://sachinchoolur.github.io/lightslider/
+// link: http://sachinchoolur.github.io/lightslider/
 
 function initSlider() {
     // data-slider="4,3,2,1" (СТРОКА, ГДЕ ЧИСЛА ЧЕРЕЗ ЗАПЯТУЮ БЕЗ ПРОБЕЛОВ: число элементов на компе, на ноуте, на планшете, на мобилках)
@@ -179,7 +179,7 @@ function initSlider() {
 }
 
 initSlider();
-    class Scroll {
+class Scroll {
     static overlayBurger = document.querySelector(".overlay--burger");
 
     static checkBeforeMove() {
@@ -204,8 +204,8 @@ initSlider();
 }
 
 Scroll.initEvents();
-    
-    function inputChangeTypePassword() {
+
+function inputChangeTypePassword() {
     let pathSvg = "img/sprite.svg";
     let iconsNames = ["#eye_open", "#eye_close"];
 
@@ -228,7 +228,7 @@ Scroll.initEvents();
 }
 
 inputChangeTypePassword();
-    function initCustomSelect() {
+function initCustomSelect() {
     document.querySelectorAll("[data-customSelect]").forEach(item => {
         let parentElem = item.parentNode;
         let optionNodeList = item.querySelectorAll("option");
@@ -323,7 +323,7 @@ inputChangeTypePassword();
 }
 
 initCustomSelect();
-    function initDetails() {
+function initDetails() {
     $("[data-details]").each(function() {
         $(this).find(".details__header").click(() => {
             $(this).find(".details__body").slideToggle('normal'); // плавно открываем или закрываем body details
@@ -368,7 +368,7 @@ document.querySelectorAll("[data-details]").forEach(item => {
 });
 
 */
-    function initDropdown() {
+function initDropdown() {
     // document.querySelectorAll(".dropdown--click").forEach(item => {
     //     item.addEventListener("click", () => {
     //         item.classList.toggle("dropdown--active");
@@ -402,7 +402,7 @@ document.querySelectorAll("[data-details]").forEach(item => {
 
 initDropdown();
 
-    function adaptImg() {
+function adaptImg() {
     let basePixel = 16;
 
     setTimeout(() => { // на всякий случай, чтобы не было нулевых размеров 
@@ -419,3 +419,8 @@ initDropdown();
 }
 
 adaptImg();
+
+
+document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
+    item.innerHTML = "1.2.2";
+});
