@@ -82,6 +82,14 @@ html, body {
 .section {
     margin-top: var(--section_indent);
 
+    &__header {
+        margin-bottom: 1.2rem;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+    }
+
     &--footer {
         margin-top: auto;
     }

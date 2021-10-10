@@ -3864,6 +3864,14 @@ body.hideScroll {
   margin-top: var(--section_indent);
 }
 
+.section__header {
+  margin-bottom: 1.2rem;
+}
+
+.section__title {
+  font-size: 1.5rem;
+}
+
 .section--footer {
   margin-top: auto;
 }
@@ -4890,7 +4898,37 @@ body.hideScroll {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 5rem 0;
+  padding: 6rem 0;
+}
+
+.animBlock__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 2rem;
+}
+
+.animBlock__item {
+  position: relative;
+  background: #199F27;
+  min-height: 12vh;
+  color: #FFFFFF;
+  font-size: 1.2rem;
+}
+
+.animBlock__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.animBlock__img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 @media (min-width: 769px) {
@@ -4918,6 +4956,10 @@ body.hideScroll {
 @media (max-width: 1600px) {
   .section__inner {
     max-width: 1150px;
+  }
+
+  .animBlock__items {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -5055,6 +5097,10 @@ body.hideScroll {
 
   .main__buttons button:not(:last-child) {
     margin: 0 0 0.8rem 0;
+  }
+
+  .animBlock__items {
+    grid-template-columns: 1fr;
   }
 }
 

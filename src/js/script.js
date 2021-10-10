@@ -13,7 +13,7 @@
 --include("_dropdown.js")
 
 --include("_adaptImg.js")
-
+--include("_intersection.js")
 
 document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
     item.innerHTML = "1.2.2";
