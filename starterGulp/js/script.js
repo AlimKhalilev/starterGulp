@@ -1454,13 +1454,14 @@ class Intersection {
 
     static initAnimEvents() {
         document.querySelectorAll("[data-animation]").forEach(item => {
-            this.animObserver.observe(item);
 
-            item.addEventListener("mouseenter", function(e) {
+            this.animObserver.observe(item); // закидываем слушателя на все необходимые элементы
+
+            item.addEventListener("mouseenter", function(e) { // вешаем событие на наведение мыши (доп. функционал)
                 item.classList.remove(item.dataset.animation);
                 setTimeout(() => {
                     item.classList.add(item.dataset.animation);
-                }, 300);
+                }, 70);
             });
         });
     }
