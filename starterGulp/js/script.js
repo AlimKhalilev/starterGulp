@@ -1443,8 +1443,7 @@ class Intersection {
     static animObserverCallback(entries) { // callback функция с настройками
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                if (!entry.target.classList.contains("animated")) {
-                    entry.target.classList.add("animated");
+                if (!entry.target.classList.contains(entry.target.dataset.animation)) {
                     entry.target.classList.add(entry.target.dataset.animation);
                 }
             }
@@ -1456,6 +1455,13 @@ class Intersection {
     static initAnimEvents() {
         document.querySelectorAll("[data-animation]").forEach(item => {
             this.animObserver.observe(item);
+
+            item.addEventListener("mouseenter", function(e) {
+                item.classList.remove(item.dataset.animation);
+                setTimeout(() => {
+                    item.classList.add(item.dataset.animation);
+                }, 300);
+            });
         });
     }
 }

@@ -4951,6 +4951,10 @@ body.hideScroll {
   .details__header {
     cursor: pointer;
   }
+
+  .animBlock__item {
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 1600px) {

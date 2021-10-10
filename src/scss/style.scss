@@ -156,6 +156,7 @@
         min-height: 12vh;
         color: $color_white;
         font-size: 1.2rem;
+        @include cursorPointer;
     }
 
     // .animBlock__text
