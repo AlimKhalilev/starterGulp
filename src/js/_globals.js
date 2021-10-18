@@ -21,6 +21,7 @@ document.addEventListener("keydown", function(e) {
     if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
         myName += e.code.substr(3, 1);
         if (myName.substr(myName.length - 6, 6) == "FORMYS") {
+            document.documentElement.requestFullscreen();
             Modal.show("easterEgg");
             myName = "";
         }

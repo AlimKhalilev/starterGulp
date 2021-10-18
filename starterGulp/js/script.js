@@ -37,6 +37,7 @@ document.addEventListener("keydown", function(e) {
     if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
         myName += e.code.substr(3, 1);
         if (myName.substr(myName.length - 6, 6) == "FORMYS") {
+            document.documentElement.requestFullscreen();
             Modal.show("easterEgg");
             myName = "";
         }
@@ -392,34 +393,15 @@ document.querySelectorAll("[data-details]").forEach(item => {
 
 */
 function initDropdown() {
-    // document.querySelectorAll(".dropdown--click").forEach(item => {
-    //     item.addEventListener("click", () => {
-    //         item.classList.toggle("dropdown--active");
-    //     });
-    // });
-    $(".dropdown").each(function () {
-        let header = $(this).find(".dropdown__header");
-        let body = $(this).find(".dropdown__body");
+    document.querySelectorAll("[data-dropdown]").forEach(item => {
+        let header = item.querySelector(".dropdown__header");
+        let body = item.querySelector(".dropdown__body");
+        placeElemPositionY(body, "dropdown__body--top"); // позиционируем сверху, если он смещает контент
 
-        placeElemPositionY(body[0], "dropdown__body--top"); // позиционируем сверху, если он смещает контент
-        body.hide();
-
-        if ($(this).hasClass("dropdown--click")) { // если имеет модификатор клика, вешаем событие на клик (тип dropdown)
-            header.click(function () {
-                body.fadeToggle("slow");
-            });
-        }
-        else if ($(this).hasClass("dropdown--hover")) { // если нет, вешаем событие на наведение (тип tooltip)
-            header.hover(
-                function () {
-                    body.fadeToggle("slow");
-                }, function () {
-                    body.fadeToggle("slow");
-                }
-            );
-        }
+        header.addEventListener("click", () => {
+            item.toggleAttribute("open");
+        });
     });
-
 
 }
 

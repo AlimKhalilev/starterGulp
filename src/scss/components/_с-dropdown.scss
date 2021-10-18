@@ -1,22 +1,10 @@
 .dropdown {
     position: relative;
 
-    // .dropdown--hover
-
-    &--hover {
-
-        &:hover {
-
-            .dropdown__body {
-                display: block;
-            }
+    &[open] {
+        .dropdown__body {
+            display: block;
         }
-    }
-
-    // .dropdown--click
-
-    &--click {
-
     }
 
     // .dropdown--active
@@ -36,7 +24,7 @@
     // .dropdown__body
 
     &__body {
-        //display: none;
+        display: none;
 
         position: absolute;
         left: 0;

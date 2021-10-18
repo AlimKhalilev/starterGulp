@@ -3907,7 +3907,7 @@ body.hideScroll {
 }
 
 #easterEgg.visible ~ .overlay.visible {
-  opacity: 0.95;
+  opacity: 0.99;
 }
 
 .burger {
@@ -4628,7 +4628,7 @@ body.hideScroll {
   position: relative;
 }
 
-.dropdown--hover:hover .dropdown__body {
+.dropdown[open] .dropdown__body {
   display: block;
 }
 
@@ -4637,6 +4637,7 @@ body.hideScroll {
 }
 
 .dropdown__body {
+  display: none;
   position: absolute;
   left: 0;
   z-index: 1;
