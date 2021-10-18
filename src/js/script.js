@@ -15,6 +15,8 @@
 --include("_adaptImg.js")
 --include("_intersection.js")
 
+--include("_contentSelect.js")
+
 document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
-    item.innerHTML = "1.2.2";
+    item.innerHTML = "1.2.3";
 });

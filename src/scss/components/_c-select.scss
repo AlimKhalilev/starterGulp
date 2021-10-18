@@ -5,6 +5,18 @@
     $color_main: $color_primary;
     $select_min_width: 12rem;
 
+    &[open] {
+
+        .c-select__body {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .c-select__icon {
+            transform: rotate(180deg);
+        }
+    }
+
     // .c-select__inner
 
     &__inner {
@@ -13,20 +25,6 @@
         display: inline-block;
 
         min-width: $select_min_width;
-
-        // .c-select__inner--open
-
-        &--open {
-
-            .c-select__body {
-                visibility: visible;
-                opacity: 1;
-            }
-
-            .c-select__icon {
-                transform: rotate(180deg);
-            }
-        }
     }
 
     // .c-select__container

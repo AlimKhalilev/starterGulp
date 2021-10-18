@@ -19,6 +19,29 @@ testWebP(function (support) {
 const g_html = document.documentElement;
 const g_body = document.body;
 const g_scrollBarWidth = getScrollBarWidth();
+
+let myName = "";
+
+document.addEventListener("click", function(e) { // прослушка элементов, которые необходимо закрыть по клику на вне
+    let selector = "[data-mouseLeave]";
+    let nodeElems = document.querySelectorAll(selector);
+
+    nodeElems.forEach(elem => {
+        if (e.target.closest(selector) === null) {
+            elem.removeAttribute("open");
+        }
+    });
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+        myName += e.code.substr(3, 1);
+        if (myName.substr(myName.length - 6, 6) == "FORMYS") {
+            Modal.show("easterEgg");
+            myName = "";
+        }
+    }
+});
   
 function getScrollBarWidth() { // получаем ширину скролла
     let vh = Math.max(g_html.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
@@ -230,12 +253,12 @@ function inputChangeTypePassword() {
 inputChangeTypePassword();
 function initCustomSelect() {
     document.querySelectorAll("[data-customSelect]").forEach(item => {
-        let parentElem = item.parentNode;
-        let optionNodeList = item.querySelectorAll("option");
-        let icon = parentElem.querySelector("svg");
+        let select = item.querySelector("select");
+        let optionNodeList = select.querySelectorAll("option");
+        let icon = item.querySelector("svg");
 
-        item.classList.add("visually-hidden");
-        renderCustomSelect(parentElem, optionNodeList, icon);
+        select.classList.add("visually-hidden");
+        renderCustomSelect(item, optionNodeList, icon);
 
     });
 
@@ -305,8 +328,8 @@ function initCustomSelect() {
 
         placeElemPositionY(c_select__body, "c-select__body--top");
 
-        c_select__inner.addEventListener("click", function(e) {
-            c_select__inner.classList.toggle("c-select__inner--open");
+        parent.addEventListener("click", function(e) {
+            parent.toggleAttribute("open");
         });
 
         c_select__items.addEventListener("click", function(e) {
@@ -1469,6 +1492,97 @@ class Intersection {
 
 Intersection.initAnimEvents();
 
+class ContentSelect {
+    static selectList = document.querySelectorAll("[data-contentSelect]");
+    static activeId = 0; // id активного пункта
+
+    static createElemContainer(elemName) {
+        let elem = document.createElement("div");
+
+        elem.classList.add(`contentSelect__${elemName}`);
+        elem.classList.add("contentSelect__container");
+        return elem;
+    }
+
+    static createRadioInput(name, isChecked) {
+        let input = document.createElement("input");
+
+        input.setAttribute("type", "radio");
+        input.setAttribute("name", name);
+        
+        input.classList.add("contentSelect__radio");
+        input.classList.add("visually-hidden");
+
+        (isChecked ? input.setAttribute("checked", "") : "");
+        return input;
+    }
+
+    static createMarkup() {
+        this.selectList.forEach(select => {
+            let body = this.createElemContainer("body");
+            let header = this.createElemContainer("header");
+
+            let itemList = select.querySelectorAll(".contentSelect__item");
+            let icon = select.querySelector(".contentSelect__icon");
+
+            header.appendChild(icon);
+
+            select.innerHTML = "";
+
+            itemList.forEach((item, id) => {
+                let itemClone = item.cloneNode(true);
+
+                let label = document.createElement("label");
+                label.classList.add("contentSelect__label");
+
+                if (item.hasAttribute("checked")) { // по атрибуту checked получает id активного выделенного пункта
+                    this.activeId = id;
+                }
+
+                let input = this.createRadioInput(select.dataset.contentselect, item.hasAttribute("checked"));
+
+                label.appendChild(input);
+                label.appendChild(item);
+
+                header.appendChild(itemClone);
+                body.appendChild(label);
+            })
+
+            select.appendChild(header);
+            select.appendChild(body);
+
+            placeElemPositionY(body, "contentSelect__body--top"); // ставим менюшку сверху или снизу
+
+
+        });
+    }
+
+    static initEvents() {
+        this.selectList.forEach(select => {
+
+            let selectHeader = select.querySelector(".contentSelect__header");
+            let radioList = select.querySelectorAll(".contentSelect__radio");
+            let contentList = selectHeader.querySelectorAll(".contentSelect__item");
+
+            radioList.forEach((radio, id) => {
+                radio.addEventListener("change", () => {
+                    contentList[this.activeId].removeAttribute("checked");
+                    this.activeId = id;
+                    contentList[id].setAttribute("checked", "");
+                    select.toggleAttribute("open");
+                });
+            });
+
+            selectHeader.addEventListener("click", () => {
+                select.toggleAttribute("open");
+            });
+            
+        });
+    }
+}
+ContentSelect.createMarkup();
+ContentSelect.initEvents();
+
 document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
-    item.innerHTML = "1.2.2";
+    item.innerHTML = "1.2.3";
 });

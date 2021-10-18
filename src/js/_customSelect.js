@@ -1,11 +1,11 @@
 function initCustomSelect() {
     document.querySelectorAll("[data-customSelect]").forEach(item => {
-        let parentElem = item.parentNode;
-        let optionNodeList = item.querySelectorAll("option");
-        let icon = parentElem.querySelector("svg");
+        let select = item.querySelector("select");
+        let optionNodeList = select.querySelectorAll("option");
+        let icon = item.querySelector("svg");
 
-        item.classList.add("visually-hidden");
-        renderCustomSelect(parentElem, optionNodeList, icon);
+        select.classList.add("visually-hidden");
+        renderCustomSelect(item, optionNodeList, icon);
 
     });
 
@@ -75,8 +75,8 @@ function initCustomSelect() {
 
         placeElemPositionY(c_select__body, "c-select__body--top");
 
-        c_select__inner.addEventListener("click", function(e) {
-            c_select__inner.classList.toggle("c-select__inner--open");
+        parent.addEventListener("click", function(e) {
+            parent.toggleAttribute("open");
         });
 
         c_select__items.addEventListener("click", function(e) {

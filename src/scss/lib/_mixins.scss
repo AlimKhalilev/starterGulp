@@ -116,4 +116,34 @@ html, body {
     max-width: 100%;
 }
 
+#easterEgg {
+    --color: #00a0ff;
+    text-align: center;
+    font-size: 7rem;
+    line-height: 1.6;
+    background-color: transparent;
+    box-shadow: unset;
+    padding: 0;
+    color: $color_white;
+    text-shadow:
+        0 0 7px $color_white,
+        0 0 10px $color_white,
+        0 0 21px $color_white,
+        0 0 42px var(--color),
+        0 0 82px var(--color),
+        0 0 92px var(--color),
+        0 0 102px var(--color),
+        0 0 151px var(--color);
+
+    @media ($media_sm) {
+        font-size: 4rem;
+    }
+
+    &.visible {
+        ~ .overlay.visible {
+            opacity: 0.95;
+        }
+    }
+}
+
 // === / Mixins ===

@@ -182,6 +182,11 @@
                             <input class="c-field__input" type="text" placeholder="Вводите сюда!" />
                         </label>
 
+                        <label class="input-group__elem c-field c-field--column">
+                            <span class="c-field__title">Текст описание формы сверху в виде комментария</span>
+                            <textarea class="c-field__input c-field__input--textarea" rows="8" placeholder="Вводите сюда!"></textarea>
+                        </label>
+
                         <label class="input-group__elem c-field">
                             <span class="c-field__title">Форма ввода пароля</span>
                             <div class="c-field__area c-field__area--icon" data-passwordSwitcher>
@@ -200,9 +205,9 @@
                     <div class="input-group__elems">
 
 						<div class="input-group__elem">
-							<div class="c-select">
+							<div class="c-select" data-customSelect data-mouseLeave>
 								<svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
-								<select name="select" data-customSelect>
+								<select name="select">
 									<option value="value1">Значение 1</option>
 									<option value="value2" selected>Значение 2</option>
 									<option value="value3" disabled>Значение 3</option>
@@ -300,6 +305,71 @@
                                 </div>
                             </div>
 						</div>
+
+                    </div>
+                </div>
+
+                <div class="components__elem input-group">
+                    <span class="input-group__label">Custom select content block</span>
+
+                    <div class="input-group__elems">
+
+                        <div class="input-group__elem contentSelect" data-contentSelect="selectCountry" data-mouseLeave>
+
+                            <svg class="contentSelect__icon icon icon-arrow-down"><use xlink:href="img/sprite.svg#arrow-down"></use></svg>
+
+                            <div class="contentSelect__item">
+                                <div class="contentSelect__picture">
+                                    <img class="contentSelect__img" src="./img/contentSelect/RU.svg" alt="Флаг России">
+                                </div>
+                                <span class="contentSelect__text">RU</span>
+                            </div>
+                            <div class="contentSelect__item" checked>
+                                <div class="contentSelect__picture">
+                                    <img class="contentSelect__img" src="./img/contentSelect/UA.svg" alt="Флаг Украины">
+                                </div>
+                                <span class="contentSelect__text">UA</span>
+                            </div>
+                            <div class="contentSelect__item">
+                                <div class="contentSelect__picture">
+                                    <img class="contentSelect__img" src="./img/contentSelect/US.svg" alt="Флаг Америки">
+                                </div>
+                                <span class="contentSelect__text">USA</span>
+                            </div>
+                            
+						</div>
+
+						<!-- <div class="input-group__elem contentSelect" data-contentSelect>
+                            <div class="contentSelect__header contentSelect__container">
+                                <div class="contentSelect__item">
+                                    <img class="contentSelect__img" src="./img/contentSelect/RU.svg" alt="Флаг России">
+                                    <span class="contentSelect__text">RU</span>
+                                </div>
+                            </div>
+                            <div class="contentSelect__body contentSelect__container">
+                                <label class="contentSelect__label">
+                                    <input class="contentSelect__radio visually-hidden" type="radio" name="contentSelect" checked>
+                                    <div class="contentSelect__item">
+                                        <img class="contentSelect__img" src="./img/contentSelect/RU.svg" alt="Флаг России">
+                                        <span class="contentSelect__text">RU</span>
+                                    </div>
+                                </label>
+                                <label class="contentSelect__label">
+                                    <input class="contentSelect__radio visually-hidden" type="radio" name="contentSelect">
+                                    <div class="contentSelect__item">
+                                        <img class="contentSelect__img" src="./img/contentSelect/UA.svg" alt="Флаг Украины">
+                                        <span class="contentSelect__text">UA</span>
+                                    </div>
+                                </label>
+                                <label class="contentSelect__label">
+                                    <input class="contentSelect__radio visually-hidden" type="radio" name="contentSelect">
+                                    <div class="contentSelect__item">
+                                        <img class="contentSelect__img" src="./img/contentSelect/US.svg" alt="Флаг Америки">
+                                        <span class="contentSelect__text">USA</span>
+                                    </div>
+                                </label>
+                            </div>
+						</div> -->
 
                     </div>
                 </div>

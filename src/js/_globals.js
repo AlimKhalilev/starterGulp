@@ -3,6 +3,29 @@
 const g_html = document.documentElement;
 const g_body = document.body;
 const g_scrollBarWidth = getScrollBarWidth();
+
+let myName = "";
+
+document.addEventListener("click", function(e) { // прослушка элементов, которые необходимо закрыть по клику на вне
+    let selector = "[data-mouseLeave]";
+    let nodeElems = document.querySelectorAll(selector);
+
+    nodeElems.forEach(elem => {
+        if (e.target.closest(selector) === null) {
+            elem.removeAttribute("open");
+        }
+    });
+});
+
+document.addEventListener("keydown", function(e) {
+    if (e.target.tagName !== "INPUT" && e.target.tagName !== "TEXTAREA") {
+        myName += e.code.substr(3, 1);
+        if (myName.substr(myName.length - 6, 6) == "FORMYS") {
+            Modal.show("easterEgg");
+            myName = "";
+        }
+    }
+});
   
 function getScrollBarWidth() { // получаем ширину скролла
     let vh = Math.max(g_html.clientHeight || 0, window.innerHeight || 0); // высота видимой страницы
