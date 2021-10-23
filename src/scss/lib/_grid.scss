@@ -19,7 +19,6 @@ $screen_base_container: 1520px; // desktop 1920
 //  ТОЧЕЧНЫЙ АДАПТИВ (ПРОМЕЖУТОЧНЫЙ)  \\
 
 $media_not_sm: "min-width: " + ($screen_sm + 1); // все размеры кроме моб
-
 $media_xl: "max-width: " + $screen_xl;
 $media_lg: "max-width: " + $screen_lg;
 $media_md: "max-width: " + $screen_md;

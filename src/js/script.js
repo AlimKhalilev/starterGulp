@@ -4,7 +4,7 @@
 
 --include("_modal.js")
 --include("_burger.js")
---include("_slider.js")
+//-include("_slider.js")
 --include("_scroll.js")
 
 --include("_passwordSwitcher.js")
@@ -16,7 +16,8 @@
 --include("_intersection.js")
 
 --include("_contentSelect.js")
+--include("_swiper.js")
 
 document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
-    item.innerHTML = "1.2.3";
+    item.innerHTML = "1.2.4";
 });

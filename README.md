@@ -1,5 +1,5 @@
 ![Логотип](https://alimkhalilev.github.io/starterGulp/starterGulp/img/logo.webp)
-# [starterGulp v1.2.3 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)
+# [starterGulp v1.2.4 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)
 
 ## Данная разработка является стартовой сборкой для вёрстки и разработки сайтов на базе Gulp 4.
 ____
@@ -186,4 +186,8 @@ ____
 > + Обновлён **_dropdown.js**, остался только один его вид - на клик, однако добавился функционал потери фокуса (использование **[data-mouseLeave]**. Упрощён код и переписан на чистый js)
 > + Обновлён **contentSelect** и **customSelect**, добавлено состояние **selected disabled**
 
-## © 2021 TheChampGuess / starterGulp v1.2.3
+> **1.2.4**
+> + Новый слайдер - **swiper**. Библиотека находится в папке **/js/scripts/swiper.min.js**, файл скрипта: **/js/_swiper.js**, стили: **/scss/lib/_swiper.scss**. Пример показан на главном экране. Слайдер взят с модуля [Swiper](https://swiperjs.com)
+> + Обновлен файл **/scss/lib/fonts.scss**, добавлена ссылка на скачивание шрифтов, + демонстрация начертания шрифтов на примере шрифта **Gilroy**
+
+## © 2021 TheChampGuess / starterGulp v1.2.4

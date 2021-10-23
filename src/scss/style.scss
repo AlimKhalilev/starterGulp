@@ -2,7 +2,7 @@
 @import "./lib/colors";
 @import "./lib/grid";
 @import "./lib/fonts";
-@import "./lib/lightslider";
+@import "./lib/swiper";
 @import "./animations/animate";
 @import "./lib/mixins";
 @import "./lib/burger";
@@ -86,7 +86,8 @@
 }
 
 .slider {
-    display: flex;
+    position: relative;
+    
     // .slider__item
 
     &__item {
@@ -106,6 +107,12 @@
         img {
             max-width: 100%;
             margin-top: 0.8rem;
+        }
+    }
+
+    @media ($media_sm) {
+        .swiper-button {
+            display: none;
         }
     }
 }

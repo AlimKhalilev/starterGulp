@@ -24,7 +24,7 @@ html, body {
     background-color: $color_body_bg;
     font-size: 16px;
 
-    @media ($media_sm) {
+    @media ($media_xl) {
         font-size: 15px;
     }
 

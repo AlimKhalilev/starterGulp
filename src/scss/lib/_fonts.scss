@@ -8,20 +8,28 @@
     }
 }
 
-@include font("CenturyGothic", "CenturyGothic/CenturyGothic", "normal", "normal");
-@include font("CenturyGothic", "CenturyGothic/CenturyGothic-Bold", "bold", "normal");
-@include font("CenturyGothic", "CenturyGothic/CenturyGothic-Italic", "normal", "italic");
-@include font("CenturyGothic", "CenturyGothic/CenturyGothic-BoldItalic", "bold", "italic");
+// *** https://bestfonts.pro (ссылка на бесплатные шрифты (10.2021)) ***
 
+// @include font("Gilroy", "Gilroy/Gilroy-Thin", "100", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-UltraLight", "200", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Light", "300", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Regular", "400", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Medium", "500", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Semibold", "600", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Bold", "700", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Extrabold", "800", "normal");
+// @include font("Gilroy", "Gilroy/Gilroy-Heavy", "900", "normal");
+
+// @include font("CenturyGothic", "CenturyGothic/CenturyGothic", "normal", "normal");
+// @include font("CenturyGothic", "CenturyGothic/CenturyGothic-Bold", "bold", "normal");
+// @include font("CenturyGothic", "CenturyGothic/CenturyGothic-Italic", "normal", "italic");
+// @include font("CenturyGothic", "CenturyGothic/CenturyGothic-BoldItalic", "bold", "italic");
 
 @include font("Montserrat", "Montserrat/Montserrat-Light", "300", "normal");
 @include font("Montserrat", "Montserrat/Montserrat-LightItalic", "300", "italic");
-
 @include font("Montserrat", "Montserrat/Montserrat-Regular", "400", "normal");
 @include font("Montserrat", "Montserrat/Montserrat-Italic", "400", "italic");
-
 @include font("Montserrat", "Montserrat/Montserrat-Medium", "500", "normal");
 @include font("Montserrat", "Montserrat/Montserrat-MediumItalic", "500", "italic");
-
 @include font("Montserrat", "Montserrat/Montserrat-Bold", "700", "normal");
 @include font("Montserrat", "Montserrat/Montserrat-BoldItalic", "700", "italic");
