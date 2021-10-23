@@ -20,7 +20,6 @@
     // .c-select__inner
 
     &__inner {
-        @include cursorPointer;
         position: relative;
         display: inline-block;
 
@@ -46,6 +45,7 @@
 
         width: 100%;
         justify-content: space-between;
+        @include cursorPointer;
     }
 
     // .c-select__title
@@ -103,6 +103,7 @@
         align-items: center;
         min-height: calc(var(--inputHeight) / 1.2);
         padding: 0 var(--inputPaddingX);
+        @include cursorPointer;
 
         &:hover {
             background-color: lighten($color_main, 30%);
@@ -113,7 +114,7 @@
             pointer-events: none;
         }
 
-        &[selected] {
+        &[selected]:not([disabled]) {
             background-color: lighten($color_main, 20%);
         }
     }

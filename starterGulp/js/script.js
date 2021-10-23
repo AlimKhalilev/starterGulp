@@ -61,7 +61,7 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
     let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight);
     let box = elem.getBoundingClientRect();
 
-    if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
+    if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 2) { // если при показе у нас смещается высота страницы
         elem.classList.add(className);
     }
 }
@@ -335,6 +335,10 @@ function initCustomSelect() {
 
         c_select__items.addEventListener("click", function(e) {
             if (e.target.classList.contains("c-select__item")) {
+                if (e.target.hasAttribute("disabled")) { // если у пункта стоит disabled, запрещаем его выбор
+                    console.log("disabled");
+                    return false;
+                }
                 nodeList.forEach(elem => {
                     elem.removeAttribute("selected");
                 });
@@ -1478,6 +1482,10 @@ class ContentSelect {
     static selectList = document.querySelectorAll("[data-contentSelect]");
     static activeId = 0; // id активного пункта
 
+    static filterRadioAttributes(attributes) { // из NamedNodeMap возвращает массив имен атрибутов, кроме class
+        return [...attributes].map(elem => elem.name).filter(elem => elem !== "class"); // возвращает 
+    }
+
     static createElemContainer(elemName) {
         let elem = document.createElement("div");
 
@@ -1486,7 +1494,7 @@ class ContentSelect {
         return elem;
     }
 
-    static createRadioInput(name, isChecked) {
+    static createRadioInput(name, attributes) {
         let input = document.createElement("input");
 
         input.setAttribute("type", "radio");
@@ -1495,7 +1503,10 @@ class ContentSelect {
         input.classList.add("contentSelect__radio");
         input.classList.add("visually-hidden");
 
-        (isChecked ? input.setAttribute("checked", "") : "");
+        attributes.forEach(attr => {
+            input.setAttribute(attr, "")
+        });
+
         return input;
     }
 
@@ -1521,7 +1532,7 @@ class ContentSelect {
                     this.activeId = id;
                 }
 
-                let input = this.createRadioInput(select.dataset.contentselect, item.hasAttribute("checked"));
+                let input = this.createRadioInput(select.dataset.contentselect, this.filterRadioAttributes(item.attributes));
 
                 label.appendChild(input);
                 label.appendChild(item);
@@ -1562,6 +1573,7 @@ class ContentSelect {
         });
     }
 }
+
 ContentSelect.createMarkup();
 ContentSelect.initEvents();
 

@@ -81,6 +81,10 @@ function initCustomSelect() {
 
         c_select__items.addEventListener("click", function(e) {
             if (e.target.classList.contains("c-select__item")) {
+                if (e.target.hasAttribute("disabled")) { // если у пункта стоит disabled, запрещаем его выбор
+                    console.log("disabled");
+                    return false;
+                }
                 nodeList.forEach(elem => {
                     elem.removeAttribute("selected");
                 });

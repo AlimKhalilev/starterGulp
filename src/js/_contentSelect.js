@@ -2,6 +2,10 @@ class ContentSelect {
     static selectList = document.querySelectorAll("[data-contentSelect]");
     static activeId = 0; // id активного пункта
 
+    static filterRadioAttributes(attributes) { // из NamedNodeMap возвращает массив имен атрибутов, кроме class
+        return [...attributes].map(elem => elem.name).filter(elem => elem !== "class"); // возвращает 
+    }
+
     static createElemContainer(elemName) {
         let elem = document.createElement("div");
 
@@ -10,7 +14,7 @@ class ContentSelect {
         return elem;
     }
 
-    static createRadioInput(name, isChecked) {
+    static createRadioInput(name, attributes) {
         let input = document.createElement("input");
 
         input.setAttribute("type", "radio");
@@ -19,7 +23,10 @@ class ContentSelect {
         input.classList.add("contentSelect__radio");
         input.classList.add("visually-hidden");
 
-        (isChecked ? input.setAttribute("checked", "") : "");
+        attributes.forEach(attr => {
+            input.setAttribute(attr, "")
+        });
+
         return input;
     }
 
@@ -45,7 +52,7 @@ class ContentSelect {
                     this.activeId = id;
                 }
 
-                let input = this.createRadioInput(select.dataset.contentselect, item.hasAttribute("checked"));
+                let input = this.createRadioInput(select.dataset.contentselect, this.filterRadioAttributes(item.attributes));
 
                 label.appendChild(input);
                 label.appendChild(item);
@@ -86,5 +93,6 @@ class ContentSelect {
         });
     }
 }
+
 ContentSelect.createMarkup();
 ContentSelect.initEvents();

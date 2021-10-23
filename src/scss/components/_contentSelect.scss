@@ -3,7 +3,7 @@
     --inputPaddingX: 1.2rem;
     --inputHeight: 3.2rem;
     $color_main: $color_primary;
-    $select_min_width: 9rem;
+    $select_min_width: 12rem;
 
     @include cursorPointer;
     position: relative;
@@ -28,6 +28,7 @@
     &__header {
         display: inline-flex;
         align-items: center;
+        height: var(--inputHeight);
 
         width: 100%;
         justify-content: space-between;
@@ -131,11 +132,12 @@
     // .contentSelect__img
 
     &__img {
+        margin-right: 0.4rem;
     }
 
     // .contentSelect__text
 
     &__text {
-        margin-left: 0.4rem;
+        
     }
 }

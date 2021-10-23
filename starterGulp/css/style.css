@@ -4607,7 +4607,7 @@ body.hideScroll {
   pointer-events: none;
 }
 
-.c-select__item[selected] {
+.c-select__item[selected]:not([disabled]) {
   background-color: #ffb9ad;
 }
 
@@ -4661,7 +4661,7 @@ body.hideScroll {
   --inputHeight: 3.2rem;
   position: relative;
   display: inline-block;
-  min-width: 9rem;
+  min-width: 12rem;
 }
 
 .contentSelect[open] .contentSelect__body {
@@ -4682,6 +4682,7 @@ body.hideScroll {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  height: var(--inputHeight);
   width: 100%;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
@@ -4771,8 +4772,8 @@ body.hideScroll {
   display: flex;
 }
 
-.contentSelect__text {
-  margin-left: 0.4rem;
+.contentSelect__img {
+  margin-right: 0.4rem;
 }
 
 .modal {
@@ -5085,7 +5086,11 @@ body.hideScroll {
     cursor: pointer;
   }
 
-  .c-select__inner {
+  .c-select__header {
+    cursor: pointer;
+  }
+
+  .c-select__item {
     cursor: pointer;
   }
 

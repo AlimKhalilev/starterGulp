@@ -45,7 +45,7 @@ function placeElemPositionY(elem, className) { // устанавливаем э�
     let height = Math.max(g_body.scrollHeight, g_body.offsetHeight, g_html.clientHeight, g_html.scrollHeight, g_html.offsetHeight);
     let box = elem.getBoundingClientRect();
 
-    if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 1) { // если при показе у нас смещается высота страницы
+    if (Math.abs((height - (box.top + pageYOffset)) - elem.offsetHeight) < 2) { // если при показе у нас смещается высота страницы
         elem.classList.add(className);
     }
 }
