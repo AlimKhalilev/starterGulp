@@ -1,35 +1,35 @@
-@mixin font($font_name, $file_name, $weight, $style) {
-    @font-face {
-        font-family: $font_name;
-        font-display: swap;
-        src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
-        font-weight: #{$weight};
-        font-style: #{$style};
-    }
+@font-face {
+	font-family: CenturyGothic;
+	font-display: swap;
+	src: url('../fonts/CenturyGothic.woff2') format('woff2'), url('../fonts/CenturyGothic.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
 }
-
-// *** https://bestfonts.pro (ссылка на бесплатные шрифты (10.2021)) ***
-
-// @include font("Gilroy", "Gilroy/Gilroy-Thin", "100", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-UltraLight", "200", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Light", "300", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Regular", "400", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Medium", "500", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Semibold", "600", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Bold", "700", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Extrabold", "800", "normal");
-// @include font("Gilroy", "Gilroy/Gilroy-Heavy", "900", "normal");
-
-// @include font("CenturyGothic", "CenturyGothic/CenturyGothic", "normal", "normal");
-// @include font("CenturyGothic", "CenturyGothic/CenturyGothic-Bold", "bold", "normal");
-// @include font("CenturyGothic", "CenturyGothic/CenturyGothic-Italic", "normal", "italic");
-// @include font("CenturyGothic", "CenturyGothic/CenturyGothic-BoldItalic", "bold", "italic");
-
-@include font("Montserrat", "Montserrat/Montserrat-Light", "300", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-LightItalic", "300", "italic");
-@include font("Montserrat", "Montserrat/Montserrat-Regular", "400", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-Italic", "400", "italic");
-@include font("Montserrat", "Montserrat/Montserrat-Medium", "500", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-MediumItalic", "500", "italic");
-@include font("Montserrat", "Montserrat/Montserrat-Bold", "700", "normal");
-@include font("Montserrat", "Montserrat/Montserrat-BoldItalic", "700", "italic");
+@font-face {
+	font-family: Montserrat;
+	font-display: swap;
+	src: url('../fonts/Montserrat-Bold.woff2') format('woff2'), url('../fonts/Montserrat-Bold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: Montserrat;
+	font-display: swap;
+	src: url('../fonts/Montserrat-Medium.woff2') format('woff2'), url('../fonts/Montserrat-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: Montserrat;
+	font-display: swap;
+	src: url('../fonts/Montserrat-SemiBold.woff2') format('woff2'), url('../fonts/Montserrat-SemiBold.woff') format('woff');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: Montserrat;
+	font-display: swap;
+	src: url('../fonts/Montserrat-Regular.woff2') format('woff2'), url('../fonts/Montserrat-Regular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}

@@ -1,5 +1,5 @@
 ![Логотип](https://alimkhalilev.github.io/starterGulp/starterGulp/img/logo.webp)
-# [starterGulp v1.2.4 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)
+# [starterGulp v1.3 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)
 
 ## Данная разработка является стартовой сборкой для вёрстки и разработки сайтов на базе Gulp 4.
 ____
