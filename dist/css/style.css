@@ -384,9 +384,16 @@ ul {
 }
 
 @font-face {
-  font-family: CenturyGothic;
+  font-family: Montserrat;
   font-display: swap;
-  src: url("../fonts/CenturyGothic.woff2") format("woff2"), url("../fonts/CenturyGothic.woff") format("woff");
+  src: url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
 }
@@ -400,22 +407,8 @@ ul {
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: url("../fonts/Montserrat-Medium.woff2") format("woff2"), url("../fonts/Montserrat-Medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-}
-@font-face {
-  font-family: Montserrat;
-  font-display: swap;
   src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2"), url("../fonts/Montserrat-SemiBold.woff") format("woff");
   font-weight: 600;
-  font-style: normal;
-}
-@font-face {
-  font-family: Montserrat;
-  font-display: swap;
-  src: url("../fonts/Montserrat-Regular.woff2") format("woff2"), url("../fonts/Montserrat-Regular.woff") format("woff");
-  font-weight: 400;
   font-style: normal;
 }
 /**
@@ -2502,8 +2495,7 @@ html.hideScroll, body.hideScroll {
   outline: none;
   text-decoration: none;
   border-radius: 0.5rem;
-  padding: 0 1.5rem;
-  height: 3.2rem;
+  padding: 1.15rem 1.5rem;
   font-weight: 500;
   line-height: 1;
   transition: 0.3s ease-in-out;
@@ -2520,6 +2512,7 @@ html.hideScroll, body.hideScroll {
 .btn__icon {
   width: 1.2rem;
   height: 1.2rem;
+  transition: 0.3s ease-in-out;
 }
 .btn__icon--spaceLeft {
   margin-left: 0.7rem;
@@ -2527,53 +2520,55 @@ html.hideScroll, body.hideScroll {
 .btn__icon--spaceRight {
   margin-right: 0.7rem;
 }
-.btn:hover, .btn:focus {
-  box-shadow: 0px 18px 22px -13px rgba(202, 181, 181, 0.51);
-}
 .btn--primary {
   background-color: tomato;
 }
 .btn--primary:hover, .btn--primary:focus {
   background-color: #ff3814;
-  box-shadow: 0px 18px 22px -13px #ffa494;
 }
 .btn--success {
   background-color: #199F27;
 }
 .btn--success:hover, .btn--success:focus {
   background-color: #12731c;
-  box-shadow: 0px 18px 22px -13px #27dd3a;
 }
 .btn--warning {
   background-color: #F3B63F;
 }
 .btn--warning:hover, .btn--warning:focus {
   background-color: #f0a40f;
-  box-shadow: 0px 18px 22px -13px #f8d187;
 }
 .btn--bordered {
   background-color: #FFFFFF;
-  border: 2px solid;
+  box-shadow: 0 0 0 2px currentColor inset;
 }
 .btn--bordered_primary {
-  border-color: tomato;
+  box-shadow: 0 0 0 2px tomato inset;
   color: tomato;
 }
 .btn--bordered_primary .btn__icon {
   fill: tomato;
 }
 .btn--bordered_primary:hover, .btn--bordered_primary:focus {
-  box-shadow: 0px 18px 22px -13px #ffa494;
+  box-shadow: 0 0 0 2px #ff4d2e inset;
+  color: #ff4d2e;
+}
+.btn--bordered_primary:hover .btn__icon, .btn--bordered_primary:focus .btn__icon {
+  fill: #ff4d2e;
 }
 .btn--bordered_success {
-  border-color: #199F27;
+  box-shadow: 0 0 0 2px #199F27 inset;
   color: #199F27;
 }
 .btn--bordered_success .btn__icon {
   fill: #199F27;
 }
 .btn--bordered_success:hover, .btn--bordered_success:focus {
-  box-shadow: 0px 18px 22px -13px #27dd3a;
+  box-shadow: 0 0 0 2px #168922 inset;
+  color: #168922;
+}
+.btn--bordered_success:hover .btn__icon, .btn--bordered_success:focus .btn__icon {
+  fill: #168922;
 }
 .btn--transparent {
   background-color: transparent;
@@ -2637,6 +2632,8 @@ html.hideScroll, body.hideScroll {
 .link__icon {
   fill: currentColor;
   margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
 }
 .link__icon--right {
   margin-right: 0;
@@ -2684,7 +2681,7 @@ html.hideScroll, body.hideScroll {
   justify-content: center;
 }
 .c-checkbox__icon {
-  font-size: 0.9rem;
+  width: 0.9rem;
   fill: transparent;
 }
 .c-checkbox__text {
@@ -2868,7 +2865,8 @@ html.hideScroll, body.hideScroll {
 }
 .c-select__icon {
   margin-left: 1rem;
-  font-size: 0.6rem;
+  width: 0.625rem;
+  height: 0.6rem;
 }
 
 .details--opened .details__body {
@@ -2969,6 +2967,8 @@ html.hideScroll, body.hideScroll {
   transform: translateY(-50%);
   transform-origin: top;
   right: var(--inputPaddingX);
+  width: 0.625rem;
+  height: 0.6rem;
 }
 .contentSelect__radio:checked ~ .contentSelect__item {
   background-color: #ffb9ad;
@@ -3042,6 +3042,11 @@ html.hideScroll, body.hideScroll {
 }
 .modal__close svg {
   fill: #222;
+}
+.modal__closeIcon {
+  min-width: 1.35rem;
+  max-width: 1.35rem;
+  height: 1.35rem;
 }
 .modal__content {
   text-align: center;

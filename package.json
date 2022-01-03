@@ -1,13 +1,13 @@
 {
     "name": "startergulp",
     "version": "1.0.0",
-    "description": "![Логотип](https://alimkhalilev.github.io/starterGulp/starterGulp/img/logo.webp)\r # [starterGulp v1.2.4 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)",
+    "description": "![Логотип](https://alimkhalilev.github.io/starterGulp/starterGulp/img/logo.webp)\r # [starterGulp v1.3.0 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)",
     "main": "gulpfile.js",
     "type": "module",
     "scripts": {
         "dev": "gulp",
         "build": "gulp build --build",
-        "fonts": "gulp fonts",
+        "fonts": "gulp fontsBuild",
         "zip": "gulp deployZip --build"
     },
     "repository": {
@@ -46,7 +46,9 @@
         "gulp-webp-html-nosvg": "^1.0.2",
         "gulp-webpcss": "^1.1.1",
         "gulp-zip": "^5.1.0",
+        "jquery": "^3.6.0",
         "sass": "^1.45.2",
+        "swiper": "^7.4.1",
         "webp-converter": "^2.2.3",
         "webpack": "^5.65.0",
         "webpack-stream": "^7.0.0"

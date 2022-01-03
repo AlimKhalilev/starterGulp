@@ -61,6 +61,14 @@
         }
     }
 
+    // .modal__closeIcon
+
+    &__closeIcon {
+        min-width: 1.35rem;
+        max-width: 1.35rem;
+        height: 1.35rem;
+    }
+
     // .modal__content
 
     &__content {

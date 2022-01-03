@@ -30,14 +30,15 @@
                 <ul class="header__menu menu">
                     <li class="menu__item @@main"><a class="menu__link" href="./">Главная</a></li>
                     <li class="menu__item menu__item--active"><a class="menu__link" href="./components.html">Компоненты</a></li>
-                    <li class="menu__item"><a class="menu__link" href="./img/symbol/sprite.symbol.html" target="_blank">Спрайты</a></li>
                     <li class="menu__item"><a class="menu__link" href="#" data-scroll=".scrollBlock">Скролл</a></li>
                 </ul>
             </nav>
             <div class="header__select">
 
                 <div class="c-select" data-customSelect data-mouseLeave>
-                    <svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
+                    <svg class="c-select__icon">
+                        <use xlink:href="./img/main.svg#icon-arrow-down"></use>
+                    </svg>
                     <select name="mySelect">
                         <option disabled>Выберите героя</option>
                         <option value="Чебурашка">Чебурашка</option>
@@ -62,7 +63,9 @@
                         <label class="input-group__elem c-checkbox">
                             <input class="c-checkbox__input visually-hidden" type="checkbox" />
                             <div class="c-checkbox__box">
-                                <svg class="c-checkbox__icon icon icon-check_bold"><use xlink:href="img/sprite.svg#check_bold"></use></svg>
+                                <svg class="c-checkbox__icon">
+                                    <use xlink:href="./img/main.svg#icon-check-bold"></use>
+                                </svg>
                             </div>
                             <span class="c-checkbox__text">Выбери меня!</span>
                         </label>
@@ -107,13 +110,17 @@
                         <a class="input-group__elem link" href="#">Перейти куда-то</a>
 
                         <a class="input-group__elem link" href="#here">
-                            <svg class='icon icon-arrow-left link__icon'><use xlink:href='img/sprite.svg#arrow-left'></use></svg>
+                            <svg class="link__icon">
+                                <use xlink:href="./img/main.svg#icon-arrow-left"></use>
+                            </svg>
                             <span class="link__text">Вернуться обратно</span>
                         </a>
 
                         <a class="input-group__elem link" href="#letsgo">
                             <span class="link__text">Найти что-нибудь</span>
-                            <svg class='icon icon-arrow-left link__icon link__icon--right'><use xlink:href='img/sprite.svg#loupe'></use></svg>
+                            <svg class="link__icon link__icon--right">
+                                <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                            </svg>
                         </a>
 
                     </div>
@@ -154,33 +161,43 @@
                         <div class="input-group__elem">
                             <button class="btn btn--primary">
                                 <span class="btn__text">Кнопка с иконкой!</span>
-                                <svg class="icon icon-loupe btn__icon btn__icon--spaceLeft"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon btn__icon--spaceLeft">
+                                    <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--bordered btn--bordered_success">
                                 <span class="btn__text">Кнопка с рамкой с иконкой успешная!</span>
-                                <svg class="icon icon-loupe btn__icon btn__icon--spaceLeft"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon btn__icon--spaceLeft">
+                                    <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--primary">
-                                <svg class="icon icon-loupe btn__icon btn__icon--spaceRight"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon btn__icon--spaceRight">
+                                    <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                                </svg>
                                 <span class="btn__text">Кнопка с иконкой слева!</span>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--primary">
-                                <svg class="icon icon-loupe btn__icon"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon">
+                                    <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--bordered btn--bordered_primary">
-                                <svg class="icon icon-loupe btn__icon"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon">
+                                    <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
@@ -216,8 +233,8 @@
                             <span class="c-field__title">Форма с иконкой</span>
                             <div class="c-field__area c-field__area--icon">
                                 <input class="c-field__input" type="text" placeholder="Найди меня!" />
-                                <svg class="icon icon-loupe c-field__icon c-field__icon--min">
-                                    <use xlink:href="img/sprite.svg#loupe"></use>
+                                <svg class="c-field__icon c-field__icon--min">
+                                    <use xlink:href="./img/main.svg#icon-search-loupe"></use>
                                 </svg>
                             </div>
                         </label>
@@ -236,8 +253,8 @@
                             <span class="c-field__title">Форма ввода пароля</span>
                             <div class="c-field__area c-field__area--icon" data-passwordSwitcher>
                                 <input class="c-field__input" type="password" placeholder="Найди меня!" autocomplete="on" />
-                                <svg class="icon c-field__icon">
-                                    <use xlink:href="img/sprite.svg#eye_close"></use>
+                                <svg class="c-field__icon">
+                                    <use xlink:href="./img/main.svg#icon-eye-close"></use>
                                 </svg>
                             </div>
                         </label>
@@ -251,7 +268,9 @@
 
 						<div class="input-group__elem">
 							<div class="c-select" data-customSelect data-mouseLeave>
-								<svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
+                                <svg class="c-select__icon">
+                                    <use xlink:href="./img/main.svg#icon-arrow-down"></use>
+                                </svg>
 								<select name="select">
 									<option value="value1">Значение 1</option>
 									<option value="value2" selected>Значение 2</option>
@@ -309,7 +328,9 @@
                             <div class="details__body">
                                 <div class="input-group__elem">
                                     <button class="btn btn--primary">
-                                        <svg class="icon icon-loupe btn__icon btn__icon--spaceRight"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                        <svg class="btn__icon btn__icon--spaceRight">
+                                            <use xlink:href="./img/main.svg#icon-search-loupe"></use>
+                                        </svg>
                                         <span class="btn__text">Кнопка с иконкой слева!</span>
                                     </button>
                                 </div>
@@ -348,7 +369,9 @@
 
                         <div class="input-group__elem contentSelect" data-contentSelect="selectCountry" data-mouseLeave>
 
-                            <svg class="contentSelect__icon icon icon-arrow-down"><use xlink:href="img/sprite.svg#arrow-down"></use></svg>
+                            <svg class="contentSelect__icon">
+                                <use xlink:href="./img/main.svg#icon-arrow-down"></use>
+                            </svg>
 
                             <div class="contentSelect__item" disabled checked>
                                 <span class="contentSelect__text">Выберете язык</span>
@@ -428,11 +451,15 @@
             <h2 class="blockTitle">Хей, это модалка!</h2>
         </div>
         <div class="modal__close" data-closeModal>
-            <svg class='icon icon-close'><use xlink:href='img/sprite.svg#close'></use></svg>
+            <svg class="modal__closeIcon">
+                <use xlink:href="./img/main.svg#icon-close-modal"></use>
+            </svg>
         </div>
         <div class="modal__content">
             <div class="modal__img">
-                <svg class='icon icon-window'><use xlink:href='img/sprite.svg#window'></use></svg>
+                <svg class="icon">
+                    <use xlink:href="./img/main.svg#icon-window"></use>
+                </svg>
             </div>
             <p class="modal__text">
                 Спасибо за прочтение данного текста!
@@ -453,7 +480,9 @@
             <h2 class="blockTitle">Хей, это уже 2ая модалка!</h2>
         </div>
         <div class="modal__close" data-closeModal>
-            <svg class='icon icon-close'><use xlink:href='img/sprite.svg#close'></use></svg>
+            <svg class="modal__closeIcon">
+                <use xlink:href="./img/main.svg#icon-close-modal"></use>
+            </svg>
         </div>
         <div class="modal__content">
             <p class="modal__text">
@@ -472,7 +501,9 @@
             <h2 class="blockTitle">Хей, а это уже 3ая модалка! Ого</h2>
         </div>
         <div class="modal__close" data-closeModal>
-            <svg class='icon icon-close'><use xlink:href='img/sprite.svg#close'></use></svg>
+            <svg class="modal__closeIcon">
+                <use xlink:href="./img/main.svg#icon-close-modal"></use>
+            </svg>
         </div>
         <div class="modal__content">
             <p class="modal__text">

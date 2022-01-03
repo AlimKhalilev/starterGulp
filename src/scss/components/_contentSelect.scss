@@ -89,6 +89,9 @@
         transform: translateY(-50%);
         transform-origin: top;
         right: var(--inputPaddingX);
+
+        width: 0.625rem;
+        height: 0.6rem;
     }
 
     // .contentSelect__radio

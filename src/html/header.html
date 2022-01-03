@@ -21,14 +21,15 @@
                 <ul class="header__menu menu">
                     <li class="menu__item @@main"><a class="menu__link" href="./">Главная</a></li>
                     <li class="menu__item @@components"><a class="menu__link" href="./components.html">Компоненты</a></li>
-                    <li class="menu__item"><a class="menu__link" href="./img/symbol/sprite.symbol.html" target="_blank">Спрайты</a></li>
                     <li class="menu__item"><a class="menu__link" href="#" data-scroll=".scrollBlock">Скролл</a></li>
                 </ul>
             </nav>
             <div class="header__select">
 
                 <div class="c-select" data-customSelect data-mouseLeave>
-                    <svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
+                    <svg class="c-select__icon">
+                        <use xlink:href="@img/main.svg#icon-arrow-down"></use>
+                    </svg>
                     <select name="mySelect">
                         <option disabled>Выберите героя</option>
                         <option value="Чебурашка">Чебурашка</option>

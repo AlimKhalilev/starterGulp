@@ -1,4 +1,4 @@
-import { getScrollBarWidth } from "./scrollBarWidth.js";
+import { scrollBarWidth } from "./plugins/scrollBarWidth.js";
 
 export class Modal {
     static overlay = document.querySelector(".overlay--modal");
@@ -10,7 +10,7 @@ export class Modal {
         this.overlay.classList.toggle("visible");
         document.body.classList.toggle("hideScroll");
         this.paddingElems.forEach(elem => { // все элементы, куда нужно добавить padding - добавляем
-            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${getScrollBarWidth()}px` : "");
+            elem.style.paddingRight = (elem.style.paddingRight === "" ? `${scrollBarWidth()}px` : "");
         });
     }
 

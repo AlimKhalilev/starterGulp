@@ -1,6 +1,7 @@
 import fs from 'fs';
 import fonter from 'gulp-fonter';
 import ttf2woff2 from 'gulp-ttf2woff2';
+import del from 'del';
 
 import { path } from "../config/path.js";
 import gulp from 'gulp';
@@ -11,9 +12,7 @@ import notify from 'gulp-notify';
 // *** https://bestfonts.pro (ссылка на бесплатные шрифты (10.2021)) ***
 
 export function otfToTtf() {
-    return gulp.src(`${path.srcFolder}/fonts/*.{woff,woff2}`, {})
-    .pipe(gulp.dest(`${path.build.fonts}`))
-    .pipe(gulp.src(`${path.srcFolder}/fonts/*.otf`, {}))
+    return gulp.src(`${path.srcFolder}/fonts/*.otf`, {})
     .pipe(plumber(
         notify.onError({
             title: 'FONTS',
@@ -27,6 +26,7 @@ export function otfToTtf() {
 }
 
 export function ttfToWoff() {
+    del(`${path.srcFolder}/fontsBuild`)
     return gulp.src(`${path.srcFolder}/fonts/*.ttf`, {})
     .pipe(plumber(
         notify.onError({
@@ -40,6 +40,11 @@ export function ttfToWoff() {
     .pipe(gulp.dest(`${path.build.fonts}`))
     .pipe(gulp.src(`${path.srcFolder}/fonts/*.ttf`))
     .pipe(ttf2woff2())
+    .pipe(gulp.dest(`${path.srcFolder}/fontsBuild/`))
+}
+
+export function fontsCopy() {
+    return gulp.src(`${path.srcFolder}/fontsBuild/*.{woff,woff2}`, {})
     .pipe(gulp.dest(`${path.build.fonts}`))
 }
 
