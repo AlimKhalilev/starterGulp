@@ -43,6 +43,11 @@ export function ttfToWoff() {
     .pipe(gulp.dest(`${path.srcFolder}/fontsBuild/`))
 }
 
+export function moveToFontsBuild() {
+    return gulp.src(`${path.srcFolder}/fonts/*.{woff,woff2}`, {})
+    .pipe(gulp.dest(`${path.srcFolder}/fontsBuild/`))
+}
+
 export function fontsCopy() {
     return gulp.src(`${path.srcFolder}/fontsBuild/*.{woff,woff2}`, {})
     .pipe(gulp.dest(`${path.build.fonts}`))

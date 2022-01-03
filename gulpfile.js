@@ -8,7 +8,7 @@ import { scss } from './gulp/tasks/scss.js';
 import { js } from './gulp/tasks/js.js';
 import { images } from './gulp/tasks/images.js';
 import { zip } from './gulp/tasks/zip.js';
-import { otfToTtf, ttfToWoff, fontsCopy, fontsStyle } from './gulp/tasks/fonts.js';
+import { otfToTtf, ttfToWoff, moveToFontsBuild, fontsCopy, fontsStyle } from './gulp/tasks/fonts.js';
 
 function copy() {
     return gulp.src(path.src.files)
@@ -37,7 +37,7 @@ function watcher() {
     gulp.watch(path.watch.images, images);
 }
 
-const fontsBuild = gulp.series(otfToTtf, ttfToWoff);
+const fontsBuild = gulp.series(otfToTtf, ttfToWoff, moveToFontsBuild);
 const fonts = gulp.series(fontsCopy, fontsStyle);
 const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 

@@ -1,6 +1,6 @@
 {
     "name": "startergulp",
-    "version": "1.0.0",
+    "version": "1.3.0",
     "description": "![Логотип](https://alimkhalilev.github.io/starterGulp/starterGulp/img/logo.webp)\r # [starterGulp v1.3.0 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)",
     "main": "gulpfile.js",
     "type": "module",

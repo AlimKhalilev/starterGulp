@@ -1,5 +1,5 @@
 ![Логотип](https://alimkhalilev.github.io/starterGulp/starterGulp/img/logo.webp)
-# [starterGulp v1.3 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)
+# [starterGulp v1.3.0 (демо)](https://alimkhalilev.github.io/starterGulp/starterGulp/)
 
 ## Данная разработка является стартовой сборкой для вёрстки и разработки сайтов на базе Gulp 4.
 ____
@@ -9,9 +9,18 @@ ____
 <br>
 
 > + **Node JS**: от v16.13.0;
-> + **Python**: 2.7.
+> + **Python**: 2.7;
+> + **NPM**: 8.3.0.
 
-### Какой функционал содержит данная сборка?
+### Какой функционал содержит данная сборка? (обновление от 03.01.2022)
+
+<br>
+
+> + Переход с commonJS на ES6 Modules (с require на import) (webpack);
+> + html компоненты в отдельной папке
+> + Автоматическая генерация шрифтов и scss файла стиля шрифта
+> + Режимы разработки (**npm run fonts** (компиляция шрифтов), **npm run dev**, **npm run build**)
+> + Префикс версии **_v=** скриптов и стилей для отключения кэша при обновлении собранного сайта
 
 <br>
 
