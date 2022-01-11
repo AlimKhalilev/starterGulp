@@ -1,3 +1,5 @@
+import { BurgerMenu } from "./burger.js";
+
 export class Scroll {
     static overlayBurger = document.querySelector(".overlay--burger");
 

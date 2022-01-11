@@ -51,7 +51,7 @@ export function scss() {
             })
         ))
         // Закоментить если не нужен обычный style.css (не min)
-        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.build.css, {sourcemaps: appState.isDev}))
         .pipe(gulpIf(
             appState.isBuild,
             cleanCss()
@@ -59,6 +59,6 @@ export function scss() {
         .pipe(rename({
             extname: ".min.css"
         }))
-        .pipe(gulp.dest(path.build.css))
+        .pipe(gulp.dest(path.build.css, {sourcemaps: appState.isDev}))
         .pipe(browserSync.stream());
 }

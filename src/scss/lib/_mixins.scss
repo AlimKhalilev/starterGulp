@@ -150,4 +150,19 @@ html, body {
     }
 }
 
+.customScroll {
+    &::-webkit-scrollbar-track {
+        background-color: lighten($color_secondary, 20%);
+    }
+    
+    &::-webkit-scrollbar {
+        width: 4px;
+        background-color: lighten($color_secondary, 20%);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: darken($color_secondary, 10%);
+    }
+}
+
 // === / Mixins ===

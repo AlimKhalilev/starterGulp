@@ -8,7 +8,6 @@ export function initCustomSelect() {
 
         select.classList.add("visually-hidden");
         renderCustomSelect(item, optionNodeList, icon);
-
     });
 
     function getActiveTitle(nodeList) {
@@ -31,7 +30,8 @@ export function initCustomSelect() {
             let c_select__item = document.createElement("li");
             c_select__item.classList.add("c-select__item");
             c_select__item.setAttribute("data-id", id);
-            c_select__item.innerHTML = option.innerHTML;
+            c_select__item.setAttribute("title", option.innerHTML);
+            c_select__item.innerHTML = `<span class="c-select__itemText">${option.innerHTML}</span>`;
 
             option.getAttributeNames().forEach(attr => {
                 c_select__item.setAttribute(attr, option.getAttribute(attr));
@@ -39,6 +39,37 @@ export function initCustomSelect() {
 
             itemsList.appendChild(c_select__item);
         });
+    }
+
+    function setAutoSize(header, body, icon) {
+        body.style.border = "none";
+        body.style.height = "0";
+        body.style.position = "initial";
+        icon.style.display = "none";
+
+        setTimeout(() => {
+            let width = 0;
+
+            if (body.offsetWidth === 0) { // если размер равен 0 (у родителя возможно display: none)
+                let cloneBody = body.cloneNode(true); // создаем клон элемента, берем у него размер и удаляем
+                let cover = document.createElement("div");
+                cover.classList.add("c-select");
+                cover.style.display = "flex";
+
+                cover.appendChild(cloneBody);
+                document.body.appendChild(cover);
+                width = `calc(${cloneBody.offsetWidth}px + 2rem)`;
+                document.body.removeChild(cover);
+            }
+            else {
+                width = `calc(${body.offsetWidth}px + 2rem)`;
+            }
+            body.removeAttribute("style");
+            icon.removeAttribute("style");
+            
+            body.style.width = width;
+            header.style.width = width;
+        }, 150);
     }
 
     function renderCustomSelect(parent, nodeList, icon) {
@@ -51,6 +82,7 @@ export function initCustomSelect() {
         let c_select__title = document.createElement("span");
         c_select__title.classList.add("c-select__title");
         c_select__title.innerHTML = getActiveTitle(nodeList);
+        c_select__title.setAttribute("title", getActiveTitle(nodeList));
 
         c_select__header.appendChild(c_select__title);
         if (icon !== null) {
@@ -82,18 +114,22 @@ export function initCustomSelect() {
         });
 
         c_select__items.addEventListener("click", function(e) {
-            if (e.target.classList.contains("c-select__item")) {
-                if (e.target.hasAttribute("disabled")) { // если у пункта стоит disabled, запрещаем его выбор
+            const target = e.target.classList.contains("c-select__item") ? e.target : e.target.parentNode;
+            if (target.classList.contains("c-select__item")) {
+                if (target.hasAttribute("disabled")) { // если у пункта стоит disabled, запрещаем его выбор
                     console.log("disabled");
                     return false;
                 }
                 nodeList.forEach(elem => {
                     elem.removeAttribute("selected");
                 });
-                nodeList[+e.target.dataset.id].setAttribute("selected", "");
+                nodeList[+target.dataset.id].setAttribute("selected", "");
                 renderCustomSelectItems(nodeList, c_select__items);
                 c_select__title.innerHTML = getActiveTitle(nodeList);
             }
         });
+
+        // ЗАКОММЕНТИТЬ, ЕСЛИ НЕ НУЖНА АВТОШИРИНА ПО САМОМУ ДЛИННОМУ ЭЛЕМЕНТУ СПИСКА (и добавить min-width в scss)
+        setAutoSize(c_select__header, c_select__body, icon);
     }
 }

@@ -8,6 +8,7 @@ import notify from 'gulp-notify';
 import webpack from 'webpack-stream';
 
 export function js() {
+    
     return gulp.src(path.src.js, {sourcemaps: appState.isDev})
     .pipe(plumber(
         notify.onError({
@@ -21,6 +22,6 @@ export function js() {
             filename: 'app.min.js'
         }
     }))
-    .pipe(gulp.dest(path.build.js))
+    .pipe(gulp.dest(path.build.js, {sourcemaps: appState.isDev}))
     .pipe(browserSync.stream());
 }
