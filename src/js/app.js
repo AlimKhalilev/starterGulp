@@ -34,3 +34,7 @@ initDetails(); // инициализация блока details
 document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
     item.innerHTML = "1.3.0";
 });
+
+document.querySelectorAll(".year").forEach(item => { // устанавливаем на нужных элементах версию разработки
+    item.innerHTML = new Date().getFullYear();
+});

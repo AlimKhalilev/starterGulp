@@ -6,7 +6,7 @@
     --section_indent: 3rem;
     --header-min-height: 5rem;
 
-    @media ($media_sm) {
+    @media ($media_md) {
         --section_indent: 2rem;
     }
 }

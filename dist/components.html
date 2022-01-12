@@ -3,14 +3,14 @@
     <head>
         <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/style.min.css">
+<link rel="stylesheet" href="./css/style.min.css?_v=20220112192407">
 <title>starterGulp - Компоненты</title>
     </head>
     <body>
         <header class="section header">
     <div class="section__inner header__inner">
 
-        <div class="header__logo">
+        <div class="header__logo section__inner">
 
             <a class="logo" href="./">
                 <picture><source srcset="./img/logo.webp"type="image/webp"><img class="logo__icon imgMax" src="./img/logo.png" alt="Логотип"></picture>
@@ -29,6 +29,7 @@
             <nav class="header__links">
                 <ul class="header__menu menu">
                     <li class="menu__item @@main"><a class="menu__link" href="./">Главная</a></li>
+                    <li class="menu__item @@grid"><a class="menu__link" href="./gridDemo.html">Сетка</a></li>
                     <li class="menu__item menu__item--active"><a class="menu__link" href="./components.html">Компоненты</a></li>
                     <li class="menu__item"><a class="menu__link" href="#" data-scroll=".scrollBlock">Скролл</a></li>
                 </ul>
@@ -455,7 +456,7 @@
 
         <footer class="section section--footer footer">
     <div class="section__inner footer__inner">
-        <p>2021 @TheChampGuess</p>
+        <p><span class="year"></span> @TheChampGuess</p>
         <p>StarterGulp v.<span class="version"></span></p>
     </div>
 </footer>
@@ -473,18 +474,18 @@
             </svg>
         </div>
         <div class="modal__content">
-            <div class="modal__img">
+            <div class="modal__img modal__elem">
                 <svg class="icon">
                     <use xlink:href="./img/main.svg#icon-window"></use>
                 </svg>
             </div>
-            <p class="modal__text">
+            <p class="modal__text modal__elem">
                 Спасибо за прочтение данного текста!
                 Тут нет ничего важного и интересного, но все же...
                 StarterGulp - это круто !
                 главное, чтобы было продолжение)
             </p>
-            <div class="modal__button">
+            <div class="modal__button modal__elem">
                 <button class="btn btn--primary" data-closeModal>Хорошо</button>
             </div>
         </div>
@@ -502,10 +503,10 @@
             </svg>
         </div>
         <div class="modal__content">
-            <p class="modal__text">
+            <p class="modal__text modal__elem">
                 Просто текст из модалки 2...
             </p>
-            <div class="modal__button">
+            <div class="modal__button modal__elem">
                 <button class="btn btn--primary" data-modal="modal_third">Еще модалка</button>
             </div>
         </div>
@@ -523,10 +524,10 @@
             </svg>
         </div>
         <div class="modal__content">
-            <p class="modal__text">
+            <p class="modal__text modal__elem">
                 Просто текст из модалки 3...
             </p>
-            <div class="modal__button">
+            <div class="modal__button modal__elem">
                 <button class="btn btn--primary" data-closeModal>Окей</button>
             </div>
         </div>
@@ -537,6 +538,6 @@
 
 <div class="overlay overlay--modal" data-closeModal></div>
 
-<script src="./js/app.min.js"></script>
+<script src="./js/app.min.js?_v=20220112192407"></script>
     </body>
 </html>

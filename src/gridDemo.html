@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+
+		@@include('./html/head.html', {
+			"title": "starterGulp - Сетка"
+		})
+
+	</head>
+	<body>
+		
+        @@include("./html/header.html", {
+            "grid": "menu__item--active"
+        })
+
+		<section class="section section--underHeader section--beforeFooter grid">
+			<div class="section__inner">
+                <div class="grid__box grid__box--base">Контейнер (Base)</div>
+                <div class="grid__box grid__box--xl">Контейнер (xl)</div>
+                <div class="grid__box grid__box--md">Контейнер (md)</div>
+                <div class="grid__box grid__box--sm">Контейнер (sm)</div>
+                <div class="grid__box grid__box--xs">Контейнер (xs)</div>
+			</div>
+		</section>
+
+		@@include("./html/footer.html")
+
+	</body>
+</html>

@@ -18,9 +18,12 @@
         top: 50%;
     }
 
+    @media ($media_sm) {
+        padding: 1.5rem;
+    }
+
     @media ($media_xs) {
         width: 90%;
-        padding: 1.5rem;
     }
 
     // .modal__body
@@ -28,6 +31,18 @@
     &__body {
         max-height: 80vh;
         overflow-y: auto;
+
+        @media ($media_sm) {
+            max-height: 70vh;
+        }
+    }
+
+    // .modal__elem
+
+    &__elem {
+        &:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
     }
 
     // .modal__header
@@ -36,6 +51,10 @@
         text-align: center;
         line-height: 1.27;
         margin-bottom: 2.5rem;
+
+        @media ($media_sm) {
+            margin-bottom: 1.5rem;
+        }
     }
 
     // .modal__close
@@ -78,15 +97,19 @@
     // .modal__img
 
     &__img {
+        display: flex;
+        justify-content: center;
+
         svg {
             max-width: 10rem;
+            margin: -1rem; // иконка чуть кривая)
         }
     }
 
     // .modal__text
 
     &__text {
-        padding: 1rem 0;
+
     }
 
     // .modal__button

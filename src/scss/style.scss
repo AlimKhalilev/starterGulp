@@ -19,6 +19,7 @@
 @import "./components/с-dropdown";
 @import "./components/contentSelect";
 
+@import "gridDemo";
 @import "modal";
 @import "header";
 @import "footer";
@@ -63,14 +64,14 @@
         display: flex;
         align-items: center;
 
-        @media ($media_sm) {
+        @media ($media_xs) {
             flex-direction: column;
         }
 
         button:not(:last-child) {
             margin-right: 0.8rem;
 
-            @media ($media_sm) {
+            @media ($media_xs) {
                 margin: 0 0 0.8rem 0;
             }
         }
@@ -85,6 +86,23 @@
 
 .slider {
     position: relative;
+
+    // .slider__buttons
+
+    &__buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+
+        .swiper-button {
+            position: initial;
+            margin: 0;
+
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+        }
+    }
     
     // .slider__item
 
@@ -149,6 +167,10 @@
             grid-template-columns: 1fr 1fr 1fr;
         }
 
+        @media ($media_md) {
+            grid-template-columns: 1fr 1fr;
+        }
+
         @media ($media_sm) {
             grid-template-columns: 1fr;
         }
@@ -159,7 +181,7 @@
     &__item {
         position: relative;
         background: $color_success;
-        min-height: 12vh;
+        min-height: 8rem;
         color: $color_white;
         font-size: 1.2rem;
         @include cursorPointer;

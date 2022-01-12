@@ -1,4 +1,5 @@
 import Swiper, { Navigation, Pagination } from 'swiper';
+import { screen_xs_breakpoint, screen_sm_breakpoint, screen_md_breakpoint, screen_base_space } from './plugins/gridSizes.js';
 Swiper.use([Navigation, Pagination]);
 
 export const catSwiper = new Swiper(".mySwiper", {
@@ -6,24 +7,25 @@ export const catSwiper = new Swiper(".mySwiper", {
     spaceBetween: 0,
     grabCursor: true,
     pagination: {
-        el: ".swiper-pagination",
+        el: ".main__slider .swiper-pagination",
         clickable: true,
     },
     navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
+        nextEl: ".main__slider .swiper-button-next",
+        prevEl: ".main__slider .swiper-button-prev",
     },
     breakpoints: {
-        // when window width is >= 100px
-        100: {
+        // when window width is >= 0px (размеры идут от большего к меньшему)
+        0: {
             slidesPerView: 1
         },
-        // when window width is >= 576px
-        576: {
+        [screen_xs_breakpoint]: {
             slidesPerView: 2
         },
-        // when window width is >= 768px
-        768: {
+        [screen_sm_breakpoint + screen_base_space]: {
+            slidesPerView: 3
+        },
+        [screen_md_breakpoint + screen_base_space]: {
             slidesPerView: 4
         }
     }

@@ -5,7 +5,7 @@
 		<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./css/style.min.css?_v=20220112192407">
-<title>starterGulp - Main Page</title>
+<title>starterGulp - Сетка</title>
 
 	</head>
 	<body>
@@ -31,8 +31,8 @@
         <div class="header__controls" data-burger="menu">
             <nav class="header__links">
                 <ul class="header__menu menu">
-                    <li class="menu__item menu__item--active"><a class="menu__link" href="./">Главная</a></li>
-                    <li class="menu__item @@grid"><a class="menu__link" href="./gridDemo.html">Сетка</a></li>
+                    <li class="menu__item @@main"><a class="menu__link" href="./">Главная</a></li>
+                    <li class="menu__item menu__item--active"><a class="menu__link" href="./gridDemo.html">Сетка</a></li>
                     <li class="menu__item @@components"><a class="menu__link" href="./components.html">Компоненты</a></li>
                     <li class="menu__item"><a class="menu__link" href="#" data-scroll=".scrollBlock">Скролл</a></li>
                 </ul>
@@ -59,98 +59,13 @@
     </div>
 </header>
 
-		<section class="section section--underHeader main">
-			<div class="section__inner main__inner">
-
-				<div class="main__header">
-					<h1 class="blockTitle">Привет, это StarterGulp v.<span class="version"></span>!</h1>
-				</div>
-
-				<div class="main__content">
-
-					<!-- <div class="main__icons">
-						<svg class='icon icon-twitter'><use xlink:href='img/sprite.svg#twitter'></use></svg>
-						<svg class='icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
-					</div> -->
-
-					<picture><source srcset="img/gulp-demo.webp"type="image/webp"><img class="imgMax" src="img/gulp-demo.png" alt="Изображение поля" adaptImg></picture>
-
-					<div class="main__buttons">
-						<button data-modal="modal_success" class="btn btn--primary">Открыть модалку 1</button>
-						<button data-modal="modal_second" class="btn btn--primary">Открыть модалку 2</button>
-					</div>
-
-				</div>
-
-				<div class="main__slider slider">
-
-					<div class="slider__buttons">
-						<div class="swiper-button swiper-button-prev"></div>
-						<div class="swiper-button swiper-button-next"></div>
-					</div>
-
-					<div class="swiper mySwiper">
-						<!-- .swiper-wrapper.slider__item.swiper-slide*8>.slider__card>span{Привет, это слайд №$}+img[src="./img/cat.jpg" alt="Кот"] -->
-						<div class="swiper-wrapper">
-
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №1</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №2</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №3</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №4</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №5</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №6</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №7</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-							<div class="slider__item swiper-slide">
-								<div class="slider__card"><span>Привет, это слайд №8</span><picture><source srcset="./img/cat.webp"type="image/webp"><img src="./img/cat.jpg" alt="Кот"></picture></div>
-							</div>
-						
-						</div>
-					</div>
-
-					<div class="swiper-pagination"></div>
-					
-				</div>
-
-			</div>
-		</section>
-
-		<div class="section animBlock">
+		<section class="section section--underHeader section--beforeFooter grid">
 			<div class="section__inner">
-				<div class="section__header">
-					<h2 class="section__title">Блок с анимациями (при скролле и наведении)</h2>
-				</div>
-
-				<div class="animBlock__items">
-					<div class="animBlock__item animated slow" data-animation="bounce">bounce</div>
-					<div class="animBlock__item animated slow" data-animation="flash">flash</div>
-					<div class="animBlock__item animated slow" data-animation="pulse">pulse</div>
-					<div class="animBlock__item animated slow" data-animation="rubberBand">rubberBand</div>
-					<div class="animBlock__item animated slow" data-animation="headShake">headShake</div>
-					<div class="animBlock__item animated slow" data-animation="swing">swing</div>
-					<div class="animBlock__item animated slow" data-animation="tada">tada</div>
-					<div class="animBlock__item animated slow" data-animation="wobble">wobble</div>
-				</div>
-
-			</div>
-		</div>
-
-		<section class="section section--beforeFooter scrollBlock">
-			<div class="section__inner scrollBlock__inner">
-				<div class="scrollBlock__preview">Это блок скролла</div>
+                <div class="grid__box grid__box--base">Контейнер (Base)</div>
+                <div class="grid__box grid__box--xl">Контейнер (xl)</div>
+                <div class="grid__box grid__box--md">Контейнер (md)</div>
+                <div class="grid__box grid__box--sm">Контейнер (sm)</div>
+                <div class="grid__box grid__box--xs">Контейнер (xs)</div>
 			</div>
 		</section>
 
