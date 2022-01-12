@@ -6,7 +6,7 @@
     --section_indent: 3rem;
     --header-min-height: 5rem;
 
-    @media ($media_sm) {
+    @media ($media_md) {
         --section_indent: 2rem;
     }
 }
@@ -16,6 +16,10 @@
     @media ($media_not_sm) {
         cursor: pointer;
     }
+}
+
+@mixin baseTransition {
+    transition: 0.3s ease-in-out;
 }
 
 html, body {
@@ -143,6 +147,21 @@ html, body {
         ~ .overlay.visible {
             opacity: 0.99;
         }
+    }
+}
+
+.customScroll {
+    &::-webkit-scrollbar-track {
+        background-color: lighten($color_secondary, 20%);
+    }
+    
+    &::-webkit-scrollbar {
+        width: 4px;
+        background-color: lighten($color_secondary, 20%);
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: darken($color_secondary, 10%);
     }
 }
 

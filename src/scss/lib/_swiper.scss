@@ -628,25 +628,26 @@ button.swiper-pagination-bullet {
     background-position: center;
 }
 
-.swiper-button-prev,
-.swiper-rtl .swiper-button-next {
-    left: -3rem;
-    right: auto;
-    transform: rotateY(180deg);
-}
 .swiper-button-prev:after,
-.swiper-rtl .swiper-button-next:after {
-    content: "";
-}
-.swiper-button-next,
-.swiper-rtl .swiper-button-prev {
-    right: -3rem;
-    left: auto;
-}
 .swiper-button-next:after,
+.swiper-rtl .swiper-button-next:after,
 .swiper-rtl .swiper-button-prev:after {
     content: "";
 }
+
+.swiper-button-prev,
+.swiper-rtl .swiper-button-next {
+    //left: -3rem;
+    //right: auto;
+    transform: rotateY(180deg);
+}
+
+.swiper-button-next,
+.swiper-rtl .swiper-button-prev {
+    //right: -3rem;
+    //left: auto;
+}
+
 .swiper-pagination {
     position: initial;
     margin-top: 0.5rem;

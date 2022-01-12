@@ -50,9 +50,11 @@
             }
         }
 
-        &:focus, &:hover {
-            ~ .c-checkbox__box {
-                box-shadow: 0 0 0.5rem $color_secondary;
+        &:not(:checked) {
+            &:hover {
+                ~ .c-checkbox__box {
+                    border-color: darken($color_secondary, 10%);
+                }
             }
         }
 
@@ -74,7 +76,8 @@
     // .c-checkbox__icon
 
     &__icon {
-        font-size: 0.9rem;
+        width: 0.9rem;
+        height: 0.9rem;
         fill: transparent;
     }
 

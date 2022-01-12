@@ -2,14 +2,14 @@
 <html lang="ru">
 	<head>
 
-		@@include('_head.html', {
+		@@include('./html/head.html', {
 			"title": "starterGulp - Main Page"
 		})
 
 	</head>
 	<body>
 		
-        @@include("_header.html", {
+        @@include("./html/header.html", {
             "main": "menu__item--active"
         })
 
@@ -37,6 +37,11 @@
 				</div>
 
 				<div class="main__slider slider">
+
+					<div class="slider__buttons">
+						<div class="swiper-button swiper-button-prev"></div>
+						<div class="swiper-button swiper-button-next"></div>
+					</div>
 
 					<div class="swiper mySwiper">
 						<!-- .swiper-wrapper.slider__item.swiper-slide*8>.slider__card>span{Привет, это слайд №$}+img[src="./img/cat.jpg" alt="Кот"] -->
@@ -71,9 +76,6 @@
 					</div>
 
 					<div class="swiper-pagination"></div>
-
-					<div class="swiper-button swiper-button-prev"></div>
-					<div class="swiper-button swiper-button-next"></div>
 					
 				</div>
 
@@ -106,7 +108,7 @@
 			</div>
 		</section>
 
-		@@include("_footer.html")
+		@@include("./html/footer.html")
 
 	</body>
 </html>

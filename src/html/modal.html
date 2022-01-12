@@ -1,0 +1,74 @@
+<div class="modal" id="modal_success">
+    <div class="modal__body">
+        <div class="modal__header">
+            <h2 class="blockTitle">Хей, это модалка!</h2>
+        </div>
+        <div class="modal__close" data-closeModal>
+            <svg class="modal__closeIcon">
+                <use xlink:href="@img/main.svg#icon-close-modal"></use>
+            </svg>
+        </div>
+        <div class="modal__content">
+            <div class="modal__img modal__elem">
+                <svg class="icon">
+                    <use xlink:href="@img/main.svg#icon-window"></use>
+                </svg>
+            </div>
+            <p class="modal__text modal__elem">
+                Спасибо за прочтение данного текста!
+                Тут нет ничего важного и интересного, но все же...
+                StarterGulp - это круто !
+                главное, чтобы было продолжение)
+            </p>
+            <div class="modal__button modal__elem">
+                <button class="btn btn--primary" data-closeModal>Хорошо</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal_second">
+    <div class="modal__body">
+        <div class="modal__header">
+            <h2 class="blockTitle">Хей, это уже 2ая модалка!</h2>
+        </div>
+        <div class="modal__close" data-closeModal>
+            <svg class="modal__closeIcon">
+                <use xlink:href="@img/main.svg#icon-close-modal"></use>
+            </svg>
+        </div>
+        <div class="modal__content">
+            <p class="modal__text modal__elem">
+                Просто текст из модалки 2...
+            </p>
+            <div class="modal__button modal__elem">
+                <button class="btn btn--primary" data-modal="modal_third">Еще модалка</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="modal_third">
+    <div class="modal__body">
+        <div class="modal__header">
+            <h2 class="blockTitle">Хей, а это уже 3ая модалка! Ого</h2>
+        </div>
+        <div class="modal__close" data-closeModal>
+            <svg class="modal__closeIcon">
+                <use xlink:href="@img/main.svg#icon-close-modal"></use>
+            </svg>
+        </div>
+        <div class="modal__content">
+            <p class="modal__text modal__elem">
+                Просто текст из модалки 3...
+            </p>
+            <div class="modal__button modal__elem">
+                <button class="btn btn--primary" data-closeModal>Окей</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="easterEgg">qq all by FORMYS</div>
+
+<div class="overlay overlay--modal" data-closeModal></div>

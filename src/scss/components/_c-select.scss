@@ -1,15 +1,17 @@
 .c-select {
-    --iconSize: 1.4rem;
-    --inputPaddingX: 1.2rem;
-    --inputHeight: 3.2rem;
+    --iconSize: 1.5rem;
+    --inputPaddingX: 1.25rem;
+    --inputHeight: 3.25rem;
     $color_main: $color_primary;
     $select_min_width: 12rem;
+    $select_max_width: 280px;
 
     &[open] {
 
         .c-select__body {
             visibility: visible;
             opacity: 1;
+            z-index: 1;
         }
 
         .c-select__icon {
@@ -23,7 +25,8 @@
         position: relative;
         display: inline-block;
 
-        min-width: $select_min_width;
+        //min-width: $select_min_width;
+        max-width: $select_max_width;
     }
 
     // .c-select__container
@@ -42,6 +45,7 @@
         align-items: center;
         height: var(--inputHeight);
         padding: 0 var(--inputPaddingX);
+        max-width: $select_max_width;
 
         width: 100%;
         justify-content: space-between;
@@ -51,7 +55,7 @@
     // .c-select__title
 
     &__title {
-
+        max-width: calc(20rem - 5rem);
     }
 
     // .c-select__body
@@ -59,9 +63,9 @@
     &__body {
         overflow: hidden;
         position: absolute;
-        width: 100%;
         bottom: -0.2rem;
         transform: translateY(100%);
+        max-width: $select_max_width;
 
         visibility: hidden;
         opacity: 0;
@@ -105,6 +109,8 @@
         padding: 0 var(--inputPaddingX);
         @include cursorPointer;
 
+        white-space: nowrap;
+
         &:hover {
             background-color: lighten($color_main, 30%);
         }
@@ -123,6 +129,14 @@
 
     &__icon {
         margin-left: 1rem;
-        font-size: 0.6rem;
+        max-width: 0.625rem;
+        min-width: 0.625rem;
+        height: 0.6rem;
+    }
+
+    &__title, &__itemText {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }

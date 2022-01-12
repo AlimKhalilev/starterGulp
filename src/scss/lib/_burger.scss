@@ -1,7 +1,7 @@
 .burger {
     display: none;
 
-    @media ($media_sm) {
+    @media ($media_md) {
         display: flex;
     }
 

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
     <head>
-        @@include('_head.html', { "title": "starterGulp - Компоненты" })
+        @@include('./html/head.html', { "title": "starterGulp - Компоненты" })
     </head>
     <body>
-        @@include("_header.html", {
+        @@include("./html/header.html", {
             "components": "menu__item--active"
         })
 
@@ -17,7 +17,9 @@
                         <label class="input-group__elem c-checkbox">
                             <input class="c-checkbox__input visually-hidden" type="checkbox" />
                             <div class="c-checkbox__box">
-                                <svg class="c-checkbox__icon icon icon-check_bold"><use xlink:href="img/sprite.svg#check_bold"></use></svg>
+                                <svg class="c-checkbox__icon">
+                                    <use xlink:href="@img/main.svg#icon-check-bold"></use>
+                                </svg>
                             </div>
                             <span class="c-checkbox__text">Выбери меня!</span>
                         </label>
@@ -62,13 +64,17 @@
                         <a class="input-group__elem link" href="#">Перейти куда-то</a>
 
                         <a class="input-group__elem link" href="#here">
-                            <svg class='icon icon-arrow-left link__icon'><use xlink:href='img/sprite.svg#arrow-left'></use></svg>
+                            <svg class="link__icon">
+                                <use xlink:href="@img/main.svg#icon-arrow-left"></use>
+                            </svg>
                             <span class="link__text">Вернуться обратно</span>
                         </a>
 
                         <a class="input-group__elem link" href="#letsgo">
                             <span class="link__text">Найти что-нибудь</span>
-                            <svg class='icon icon-arrow-left link__icon link__icon--right'><use xlink:href='img/sprite.svg#loupe'></use></svg>
+                            <svg class="link__icon link__icon--right">
+                                <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                            </svg>
                         </a>
 
                     </div>
@@ -109,33 +115,43 @@
                         <div class="input-group__elem">
                             <button class="btn btn--primary">
                                 <span class="btn__text">Кнопка с иконкой!</span>
-                                <svg class="icon icon-loupe btn__icon btn__icon--spaceLeft"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon btn__icon--spaceLeft">
+                                    <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--bordered btn--bordered_success">
                                 <span class="btn__text">Кнопка с рамкой с иконкой успешная!</span>
-                                <svg class="icon icon-loupe btn__icon btn__icon--spaceLeft"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon btn__icon--spaceLeft">
+                                    <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--primary">
-                                <svg class="icon icon-loupe btn__icon btn__icon--spaceRight"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon btn__icon--spaceRight">
+                                    <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                                </svg>
                                 <span class="btn__text">Кнопка с иконкой слева!</span>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--primary">
-                                <svg class="icon icon-loupe btn__icon"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon">
+                                    <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
                         <div class="input-group__elem">
                             <button class="btn btn--bordered btn--bordered_primary">
-                                <svg class="icon icon-loupe btn__icon"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                <svg class="btn__icon">
+                                    <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                                </svg>
                             </button>
                         </div>
 
@@ -171,8 +187,8 @@
                             <span class="c-field__title">Форма с иконкой</span>
                             <div class="c-field__area c-field__area--icon">
                                 <input class="c-field__input" type="text" placeholder="Найди меня!" />
-                                <svg class="icon icon-loupe c-field__icon c-field__icon--min">
-                                    <use xlink:href="img/sprite.svg#loupe"></use>
+                                <svg class="c-field__icon c-field__icon--min">
+                                    <use xlink:href="@img/main.svg#icon-search-loupe"></use>
                                 </svg>
                             </div>
                         </label>
@@ -191,8 +207,8 @@
                             <span class="c-field__title">Форма ввода пароля</span>
                             <div class="c-field__area c-field__area--icon" data-passwordSwitcher>
                                 <input class="c-field__input" type="password" placeholder="Найди меня!" autocomplete="on" />
-                                <svg class="icon c-field__icon">
-                                    <use xlink:href="img/sprite.svg#eye_close"></use>
+                                <svg class="c-field__icon">
+                                    <use xlink:href="@img/main.svg#icon-eye-close"></use>
                                 </svg>
                             </div>
                         </label>
@@ -206,7 +222,9 @@
 
 						<div class="input-group__elem">
 							<div class="c-select" data-customSelect data-mouseLeave>
-								<svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
+                                <svg class="c-select__icon">
+                                    <use xlink:href="@img/main.svg#icon-arrow-down"></use>
+                                </svg>
 								<select name="select">
 									<option value="value1">Значение 1</option>
 									<option value="value2" selected>Значение 2</option>
@@ -216,21 +234,27 @@
 							</div>
 						</div>
 
-						<!-- <div class="c-select">
-							<div class="c-select__inner c-select__inner--open"> 
-								<div class="c-select__container c-select__header">
-									<span class="c-select__title">Значение 1</span>
-									<svg class='c-select__icon icon icon-arrow-down'><use xlink:href='img/sprite.svg#arrow-down'></use></svg>
-								</div>
-								<div class="c-select__container c-select__body">
-									<div class="c-select__items">
-										<li class="c-select__item" selected>Значение 1</li>
-										<li class="c-select__item" disabled>Значение 2</li>
-										<li class="c-select__item">Значение 3</li>
-									</div>
-								</div>
+                    </div>
+                </div>
+
+                <div class="components__elem input-group">
+                    <span class="input-group__label">Custom select max length</span>
+
+                    <div class="input-group__elems">
+
+						<div class="input-group__elem">
+							<div class="c-select" data-customSelect data-mouseLeave>
+                                <svg class="c-select__icon">
+                                    <use xlink:href="@img/main.svg#icon-arrow-down"></use>
+                                </svg>
+								<select name="selectMax">
+									<option value="value1">Значение 1</option>
+									<option value="value2">Значение 2</option>
+									<option value="value3" disabled>Значение 3</option>
+									<option value="value4" selected>Значение 4 но с очень длинным текстом</option>
+								</select>
 							</div>
-						</div> -->
+						</div>
 
                     </div>
                 </div>
@@ -264,7 +288,9 @@
                             <div class="details__body">
                                 <div class="input-group__elem">
                                     <button class="btn btn--primary">
-                                        <svg class="icon icon-loupe btn__icon btn__icon--spaceRight"><use xlink:href="img/sprite.svg#loupe"></use></svg>
+                                        <svg class="btn__icon btn__icon--spaceRight">
+                                            <use xlink:href="@img/main.svg#icon-search-loupe"></use>
+                                        </svg>
                                         <span class="btn__text">Кнопка с иконкой слева!</span>
                                     </button>
                                 </div>
@@ -297,13 +323,15 @@
                 </div>
 
                 <div class="components__elem input-group">
-                    <span class="input-group__label">Custom select content block</span>
+                    <span class="input-group__label">Content select</span>
 
                     <div class="input-group__elems">
 
                         <div class="input-group__elem contentSelect" data-contentSelect="selectCountry" data-mouseLeave>
 
-                            <svg class="contentSelect__icon icon icon-arrow-down"><use xlink:href="img/sprite.svg#arrow-down"></use></svg>
+                            <svg class="contentSelect__icon">
+                                <use xlink:href="@img/main.svg#icon-arrow-down"></use>
+                            </svg>
 
                             <div class="contentSelect__item" disabled checked>
                                 <span class="contentSelect__text">Выберете язык</span>
@@ -315,12 +343,14 @@
                                 </div>
                                 <span class="contentSelect__text">RU</span>
                             </div>
+
                             <div class="contentSelect__item">
                                 <div class="contentSelect__picture">
                                     <img class="contentSelect__img" src="./img/contentSelect/UA.svg" alt="Флаг Украины">
                                 </div>
                                 <span class="contentSelect__text">UA</span>
                             </div>
+
                             <div class="contentSelect__item">
                                 <div class="contentSelect__picture">
                                     <img class="contentSelect__img" src="./img/contentSelect/US.svg" alt="Флаг Америки">
@@ -330,44 +360,52 @@
                             
 						</div>
 
-						<!-- <div class="input-group__elem contentSelect" data-contentSelect>
-                            <div class="contentSelect__header contentSelect__container">
-                                <div class="contentSelect__item">
+                    </div>
+                    
+                </div>
+
+                <div class="components__elem input-group">
+                    <span class="input-group__label">Content select (с длинным текстом)</span>
+
+                    <div class="input-group__elems">
+
+                        <div class="input-group__elem contentSelect" data-contentSelect="selectCountrySecond" data-mouseLeave>
+
+                            <svg class="contentSelect__icon">
+                                <use xlink:href="@img/main.svg#icon-arrow-down"></use>
+                            </svg>
+
+                            <div class="contentSelect__item" disabled checked>
+                                <span class="contentSelect__text">Выберете язык</span>
+                            </div>
+
+                            <div class="contentSelect__item">
+                                <div class="contentSelect__picture">
                                     <img class="contentSelect__img" src="./img/contentSelect/RU.svg" alt="Флаг России">
-                                    <span class="contentSelect__text">RU</span>
                                 </div>
+                                <span class="contentSelect__text">RU</span>
                             </div>
-                            <div class="contentSelect__body contentSelect__container">
-                                <label class="contentSelect__label">
-                                    <input class="contentSelect__radio visually-hidden" type="radio" name="contentSelect" checked>
-                                    <div class="contentSelect__item">
-                                        <img class="contentSelect__img" src="./img/contentSelect/RU.svg" alt="Флаг России">
-                                        <span class="contentSelect__text">RU</span>
-                                    </div>
-                                </label>
-                                <label class="contentSelect__label">
-                                    <input class="contentSelect__radio visually-hidden" type="radio" name="contentSelect">
-                                    <div class="contentSelect__item">
-                                        <img class="contentSelect__img" src="./img/contentSelect/UA.svg" alt="Флаг Украины">
-                                        <span class="contentSelect__text">UA</span>
-                                    </div>
-                                </label>
-                                <label class="contentSelect__label">
-                                    <input class="contentSelect__radio visually-hidden" type="radio" name="contentSelect">
-                                    <div class="contentSelect__item">
-                                        <img class="contentSelect__img" src="./img/contentSelect/US.svg" alt="Флаг Америки">
-                                        <span class="contentSelect__text">USA</span>
-                                    </div>
-                                </label>
+
+                            <div class="contentSelect__item">
+                                <div class="contentSelect__picture">
+                                    <img class="contentSelect__img" src="./img/contentSelect/US.svg" alt="Флаг Америки">
+                                </div>
+                                <span class="contentSelect__text">USA</span>
                             </div>
-						</div> -->
+
+                            <div class="contentSelect__item">
+                                <span class="contentSelect__text">а тут какой-либо проверочный длинный текст</span>
+                            </div>
+                            
+						</div>
 
                     </div>
+                    
                 </div>
 
             </div>
         </section>
 
-        @@include("_footer.html")
+        @@include("./html/footer.html")
     </body>
 </html>
