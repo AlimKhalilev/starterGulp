@@ -5,7 +5,7 @@ $screen_md_breakpoint: 1080px;
 $screen_sm_breakpoint: 780px;
 $screen_xs_breakpoint: 520px;
 
-$screen_xs: $screen_xs_breakpoint + 1; // mobile
+$screen_xs: $screen_xs_breakpoint; // mobile
 $screen_sm: $screen_sm_breakpoint + $screen_base_space; // mobile-reverse
 $screen_md: $screen_md_breakpoint + $screen_base_space; // planshet
 $screen_xl: $screen_base_container + $screen_base_space; // notebooks

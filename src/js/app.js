@@ -12,6 +12,8 @@ import { initCustomSelect } from "./modules/customSelect.js";
 import { inputChangeTypePassword } from "./modules/passwordSwitcher.js";
 import { initDropdown } from "./modules/dropdown.js";
 import { initDetails } from "./modules/details.js";
+import { initFancyBox } from "./modules/fancybox.js";
+import { initBodyVh } from "./modules/bodyVh.js";
 
 import { catSwiper } from "./modules/swiper.js";
 
@@ -30,9 +32,11 @@ adaptImg(); // инициализация включения размера ка
 inputChangeTypePassword(); // инициализация переключателя типа поля (password / text)
 initDropdown(); // инициализация выпадающего меню
 initDetails(); // инициализация блока details
+initBodyVh(); // прописываем переменную css (--vh) для body (адаптивная высота под мобилку)
+initFancyBox(); // инициализация библиотеки для галереи
 
 document.querySelectorAll(".version").forEach(item => { // устанавливаем на нужных элементах версию разработки
-    item.innerHTML = "1.3.0";
+    item.innerHTML = "1.3.1";
 });
 
 document.querySelectorAll(".year").forEach(item => { // устанавливаем на нужных элементах версию разработки

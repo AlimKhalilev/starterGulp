@@ -4,7 +4,7 @@
 
 		<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="./css/style.min.css?_v=20220112192407">
+<link rel="stylesheet" href="./css/style.min.css">
 <title>starterGulp - Main Page</title>
 
 	</head>
@@ -128,7 +128,28 @@
 			</div>
 		</section>
 
-		<div class="section animBlock">
+		<div class="section gallery">
+			<div class="section__inner">
+
+				<div class="section__header">
+					<h2 class="section__title">Галерея изображений (кликабельная)</h2>
+				</div>
+
+				<div class="gallery__container">
+					<a class="gallery__image" href="./img/gallery/image-1-resize.jpg" data-fancybox="images">
+						<picture><source srcset="./img/gallery/image-1-resize-min.webp"type="image/webp"><img class="imgMax" src="./img/gallery/image-1-resize-min.jpg" /></picture>
+					</a>
+					<a class="gallery__image" href="./img/gallery/image-2-resize.jpg" data-fancybox="images">
+						<picture><source srcset="./img/gallery/image-2-resize-min.webp"type="image/webp"><img class="imgMax" src="./img/gallery/image-2-resize-min.jpg" /></picture>
+					</a>
+					<a class="gallery__image" href="./img/gallery/image-3-resize.jpg" data-fancybox="images">
+						<picture><source srcset="./img/gallery/image-3-resize-min.webp"type="image/webp"><img class="imgMax" src="./img/gallery/image-3-resize-min.jpg" /></picture>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<section class="section animBlock">
 			<div class="section__inner">
 				<div class="section__header">
 					<h2 class="section__title">Блок с анимациями (при скролле и наведении)</h2>
@@ -146,7 +167,7 @@
 				</div>
 
 			</div>
-		</div>
+		</secti>
 
 		<section class="section section--beforeFooter scrollBlock">
 			<div class="section__inner scrollBlock__inner">
@@ -238,7 +259,7 @@
 
 <div class="overlay overlay--modal" data-closeModal></div>
 
-<script src="./js/app.min.js?_v=20220112192407"></script>
+<script src="./js/app.min.js"></script>
 
 	</body>
 </html>

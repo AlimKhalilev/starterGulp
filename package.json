@@ -21,6 +21,7 @@
     },
     "homepage": "https://github.com/AlimKhalilev/starterGulp#readme",
     "dependencies": {
+        "@fancyapps/ui": "^4.0.26",
         "gulp-cli": "^2.3.0"
     },
     "devDependencies": {

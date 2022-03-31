@@ -28,17 +28,20 @@ html, body {
     background-color: $color_body_bg;
     font-size: 16px;
 
-    @media ($media_xl) {
-        font-size: 15px;
-    }
-
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
 
     &.hideScroll {
         overflow-y: hidden;
     }
+
+    @media ($media_xl) {
+        font-size: 15px;
+    }
+
 }
 
 .overlay {
@@ -129,6 +132,7 @@ html, body {
     box-shadow: unset;
     padding: 0;
     color: $color_white;
+    width: unset;
     text-shadow:
         0 0 7px $color_white,
         0 0 10px $color_white,
