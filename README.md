@@ -1,4 +1,4 @@
-![Логотип](https://alimkhalilev.github.io/starterGulp/dist/img/logo.webp)
+![Логотип](https://alimkhalilev.github.io/starterGulp/dist/img/old/logo.webp)
 # [starterGulp v1.3.1](https://alimkhalilev.github.io/starterGulp/dist/)
 
 ## Данная разработка является стартовой сборкой для вёрстки и разработки сайтов на базе Gulp 4.
